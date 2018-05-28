@@ -50,14 +50,12 @@ public class Pais implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idpais")
-    
     private Integer idpais;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    
     @Lob
     @Size(max = 65535)
     @Column(name = "descripcion")
