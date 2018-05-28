@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PaisViewDlg" widgetVar="PaisViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPaisTitle}">
+            <h:form id="PaisViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{paisController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPaisLabel_idpais}"/>
+                        <h:outputText value="#{paisController.selected.idpais}" title="#{bundle.ViewPaisTitle_idpais}"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_nombre}"/>
+                        <h:outputText value="#{paisController.selected.nombre}" title="#{bundle.ViewPaisTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_descripcion}"/>
+                        <h:outputText value="#{paisController.selected.descripcion}" title="#{bundle.ViewPaisTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{paisController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_usuarioins}"/>
+                        <h:outputText value="#{paisController.selected.usuarioins}" title="#{bundle.ViewPaisTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_fechains}"/>
+                        <h:outputText value="#{paisController.selected.fechains}" title="#{bundle.ViewPaisTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPaisLabel_usuarioupd}"/>
+                        <h:outputText value="#{paisController.selected.usuarioupd}" title="#{bundle.ViewPaisTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewPaisLabel_fechaupd}"/>
+                        <h:outputText value="#{paisController.selected.fechaupd}" title="#{bundle.ViewPaisTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PaisViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

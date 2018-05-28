@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductoPrecioViewDlg" widgetVar="ProductoPrecioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductoPrecioTitle}">
+            <h:form id="ProductoPrecioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productoPrecioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_productoPrecioId}"/>
+                        <h:outputText value="#{productoPrecioController.selected.productoPrecioId}" title="#{bundle.ViewProductoPrecioTitle_productoPrecioId}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_precioLista}"/>
+                        <h:outputText value="#{productoPrecioController.selected.precioLista}" title="#{bundle.ViewProductoPrecioTitle_precioLista}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_precioGeneral}"/>
+                        <h:outputText value="#{productoPrecioController.selected.precioGeneral}" title="#{bundle.ViewProductoPrecioTitle_precioGeneral}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_usuarioins}"/>
+                        <h:outputText value="#{productoPrecioController.selected.usuarioins}" title="#{bundle.ViewProductoPrecioTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_fechains}"/>
+                        <h:outputText value="#{productoPrecioController.selected.fechains}" title="#{bundle.ViewProductoPrecioTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_usuarioupd}"/>
+                        <h:outputText value="#{productoPrecioController.selected.usuarioupd}" title="#{bundle.ViewProductoPrecioTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_fechaupd}"/>
+                        <h:outputText value="#{productoPrecioController.selected.fechaupd}" title="#{bundle.ViewProductoPrecioTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_idproducto}"/>
+                        <h:outputText value="#{productoPrecioController.selected.idproducto}" title="#{bundle.ViewProductoPrecioTitle_idproducto}"/>
+                        <h:outputText value="#{bundle.ViewProductoPrecioLabel_idversionTarifa}"/>
+                        <h:outputText value="#{productoPrecioController.selected.idversionTarifa}" title="#{bundle.ViewProductoPrecioTitle_idversionTarifa}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProductoPrecioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

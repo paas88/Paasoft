@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorDireccionViewDlg" widgetVar="ProveedorDireccionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProveedorDireccionTitle}">
+            <h:form id="ProveedorDireccionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveedorDireccionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_idproveedorDireccion}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.idproveedorDireccion}" title="#{bundle.ViewProveedorDireccionTitle_idproveedorDireccion}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_nombre}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.nombre}" title="#{bundle.ViewProveedorDireccionTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_telefono}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.telefono}" title="#{bundle.ViewProveedorDireccionTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_celular}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.celular}" title="#{bundle.ViewProveedorDireccionTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{proveedorDireccionController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_usuarioins}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.usuarioins}" title="#{bundle.ViewProveedorDireccionTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_fechains}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.fechains}" title="#{bundle.ViewProveedorDireccionTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_usuarioupd}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.usuarioupd}" title="#{bundle.ViewProveedorDireccionTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_fechaupd}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.fechaupd}" title="#{bundle.ViewProveedorDireccionTitle_fechaupd}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_idciudad}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.idciudad}" title="#{bundle.ViewProveedorDireccionTitle_idciudad}"/>
+                        <h:outputText value="#{bundle.ViewProveedorDireccionLabel_proveedorProveedor}"/>
+                        <h:outputText value="#{proveedorDireccionController.selected.proveedorProveedor}" title="#{bundle.ViewProveedorDireccionTitle_proveedorProveedor}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProveedorDireccionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

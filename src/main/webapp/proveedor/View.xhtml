@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorViewDlg" widgetVar="ProveedorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProveedorTitle}">
+            <h:form id="ProveedorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveedorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProveedorLabel_idproveedor}"/>
+                        <h:outputText value="#{proveedorController.selected.idproveedor}" title="#{bundle.ViewProveedorTitle_idproveedor}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_nombre}"/>
+                        <h:outputText value="#{proveedorController.selected.nombre}" title="#{bundle.ViewProveedorTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_numeroDocumento}"/>
+                        <h:outputText value="#{proveedorController.selected.numeroDocumento}" title="#{bundle.ViewProveedorTitle_numeroDocumento}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_url}"/>
+                        <h:outputText value="#{proveedorController.selected.url}" title="#{bundle.ViewProveedorTitle_url}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_email}"/>
+                        <h:outputText value="#{proveedorController.selected.email}" title="#{bundle.ViewProveedorTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{proveedorController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_usuarioins}"/>
+                        <h:outputText value="#{proveedorController.selected.usuarioins}" title="#{bundle.ViewProveedorTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_fechains}"/>
+                        <h:outputText value="#{proveedorController.selected.fechains}" title="#{bundle.ViewProveedorTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_usuarioupd}"/>
+                        <h:outputText value="#{proveedorController.selected.usuarioupd}" title="#{bundle.ViewProveedorTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_fechaupd}"/>
+                        <h:outputText value="#{proveedorController.selected.fechaupd}" title="#{bundle.ViewProveedorTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_idclasificacion}"/>
+                        <h:outputText value="#{proveedorController.selected.idclasificacion}" title="#{bundle.ViewProveedorTitle_idclasificacion}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_idtipoDocumento}"/>
+                        <h:outputText value="#{proveedorController.selected.idtipoDocumento}" title="#{bundle.ViewProveedorTitle_idtipoDocumento}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProveedorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

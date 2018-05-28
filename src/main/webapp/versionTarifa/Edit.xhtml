@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VersionTarifaEditDlg" widgetVar="VersionTarifaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVersionTarifaTitle}">
+            <h:form id="VersionTarifaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{versionTarifaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_idversionTarifa}" for="idversionTarifa" />
+                        <p:inputText id="idversionTarifa" value="#{versionTarifaController.selected.idversionTarifa}" title="#{bundle.EditVersionTarifaTitle_idversionTarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_idversionTarifa}"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{versionTarifaController.selected.nombre}" title="#{bundle.EditVersionTarifaTitle_nombre}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_descripcion}" for="descripcion" />
+                        <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{versionTarifaController.selected.descripcion}" title="#{bundle.EditVersionTarifaTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{versionTarifaController.selected.estado}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_validodesde}" for="validodesde" />
+                        <p:calendar id="validodesde" pattern="MM/dd/yyyy" value="#{versionTarifaController.selected.validodesde}" title="#{bundle.EditVersionTarifaTitle_validodesde}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_validohasta}" for="validohasta" />
+                        <p:calendar id="validohasta" pattern="MM/dd/yyyy" value="#{versionTarifaController.selected.validohasta}" title="#{bundle.EditVersionTarifaTitle_validohasta}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{versionTarifaController.selected.usuarioins}" title="#{bundle.EditVersionTarifaTitle_usuarioins}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{versionTarifaController.selected.fechains}" title="#{bundle.EditVersionTarifaTitle_fechains}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{versionTarifaController.selected.usuarioupd}" title="#{bundle.EditVersionTarifaTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_fechaupd}" for="fechaupd" />
+                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{versionTarifaController.selected.fechaupd}" title="#{bundle.EditVersionTarifaTitle_fechaupd}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_idtarifa}" for="idtarifa" />
+                        <p:selectOneMenu id="idtarifa" value="#{versionTarifaController.selected.idtarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_idtarifa}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tarifaController.itemsAvailableSelectOne}"
+                                           var="idtarifaItem"
+                                           itemValue="#{idtarifaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{versionTarifaController.update}" value="#{bundle.Save}" update="display,:VersionTarifaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VersionTarifaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VersionTarifaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

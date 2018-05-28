@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CategoriaEditDlg" widgetVar="CategoriaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCategoriaTitle}">
+            <h:form id="CategoriaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{categoriaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_idcategoria}" for="idcategoria" />
+                        <p:inputText id="idcategoria" value="#{categoriaController.selected.idcategoria}" title="#{bundle.EditCategoriaTitle_idcategoria}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_idcategoria}"/>
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{categoriaController.selected.nombre}" title="#{bundle.EditCategoriaTitle_nombre}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_descripcion}" for="descripcion" />
+                        <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{categoriaController.selected.descripcion}" title="#{bundle.EditCategoriaTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{categoriaController.selected.estado}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{categoriaController.selected.usuarioins}" title="#{bundle.EditCategoriaTitle_usuarioins}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{categoriaController.selected.fechains}" title="#{bundle.EditCategoriaTitle_fechains}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{categoriaController.selected.usuarioupd}" title="#{bundle.EditCategoriaTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.EditCategoriaLabel_fechaupd}" for="fechaupd" />
+                        <p:inputText id="fechaupd" value="#{categoriaController.selected.fechaupd}" title="#{bundle.EditCategoriaTitle_fechaupd}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{categoriaController.update}" value="#{bundle.Save}" update="display,:CategoriaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoriaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CategoriaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

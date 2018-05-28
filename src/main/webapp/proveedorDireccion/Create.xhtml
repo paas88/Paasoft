@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorDireccionCreateDlg" widgetVar="ProveedorDireccionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProveedorDireccionTitle}">
+            <h:form id="ProveedorDireccionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveedorDireccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_idproveedorDireccion}" for="idproveedorDireccion" />
+                        <p:inputText id="idproveedorDireccion" value="#{proveedorDireccionController.selected.idproveedorDireccion}" title="#{bundle.CreateProveedorDireccionTitle_idproveedorDireccion}" required="true" requiredMessage="#{bundle.CreateProveedorDireccionRequiredMessage_idproveedorDireccion}"/>
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{proveedorDireccionController.selected.nombre}" title="#{bundle.CreateProveedorDireccionTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{proveedorDireccionController.selected.telefono}" title="#{bundle.CreateProveedorDireccionTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{proveedorDireccionController.selected.celular}" title="#{bundle.CreateProveedorDireccionTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{proveedorDireccionController.selected.estado}" required="true" requiredMessage="#{bundle.EditProveedorDireccionRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{proveedorDireccionController.selected.usuarioins}" title="#{bundle.CreateProveedorDireccionTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateProveedorDireccionRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{proveedorDireccionController.selected.fechains}" title="#{bundle.EditProveedorDireccionTitle_fechains}" required="true" requiredMessage="#{bundle.EditProveedorDireccionRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{proveedorDireccionController.selected.usuarioupd}" title="#{bundle.CreateProveedorDireccionTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_fechaupd}" for="fechaupd" />
+                        <p:inputText id="fechaupd" value="#{proveedorDireccionController.selected.fechaupd}" title="#{bundle.CreateProveedorDireccionTitle_fechaupd}" />
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_idciudad}" for="idciudad" />
+                        <p:selectOneMenu id="idciudad" value="#{proveedorDireccionController.selected.idciudad}" required="true" requiredMessage="#{bundle.EditProveedorDireccionRequiredMessage_idciudad}">
+                            <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"
+                                           var="idciudadItem"
+                                           itemValue="#{idciudadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateProveedorDireccionLabel_proveedorProveedor}" for="proveedorProveedor" />
+                        <p:selectOneMenu id="proveedorProveedor" value="#{proveedorDireccionController.selected.proveedorProveedor}" required="true" requiredMessage="#{bundle.EditProveedorDireccionRequiredMessage_proveedorProveedor}">
+                            <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
+                                           var="proveedorProveedorItem"
+                                           itemValue="#{proveedorProveedorItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proveedorDireccionController.create}" value="#{bundle.Save}" update="display,:ProveedorDireccionListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProveedorDireccionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProveedorDireccionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

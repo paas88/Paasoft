@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarifaCreateDlg" widgetVar="TarifaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTarifaTitle}">
+            <h:form id="TarifaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarifaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_idtarifa}" for="idtarifa" />
+                        <p:inputText id="idtarifa" value="#{tarifaController.selected.idtarifa}" title="#{bundle.CreateTarifaTitle_idtarifa}" required="true" requiredMessage="#{bundle.CreateTarifaRequiredMessage_idtarifa}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tarifaController.selected.nombre}" title="#{bundle.CreateTarifaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTarifaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_descripcion}" for="descripcion" />
+                        <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{tarifaController.selected.descripcion}" title="#{bundle.CreateTarifaTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{tarifaController.selected.estado}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{tarifaController.selected.usuarioins}" title="#{bundle.CreateTarifaTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateTarifaRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.fechains}" title="#{bundle.EditTarifaTitle_fechains}" required="true" requiredMessage="#{bundle.EditTarifaRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{tarifaController.selected.usuarioupd}" title="#{bundle.CreateTarifaTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_fechaupd}" for="fechaupd" />
+                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.fechaupd}" title="#{bundle.EditTarifaTitle_fechaupd}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tarifaController.create}" value="#{bundle.Save}" update="display,:TarifaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarifaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TarifaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

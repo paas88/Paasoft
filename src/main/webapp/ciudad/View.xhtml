@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CiudadViewDlg" widgetVar="CiudadViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCiudadTitle}">
+            <h:form id="CiudadViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ciudadController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCiudadLabel_idciudad}"/>
+                        <h:outputText value="#{ciudadController.selected.idciudad}" title="#{bundle.ViewCiudadTitle_idciudad}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_nombre}"/>
+                        <h:outputText value="#{ciudadController.selected.nombre}" title="#{bundle.ViewCiudadTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_descripcion}"/>
+                        <h:outputText value="#{ciudadController.selected.descripcion}" title="#{bundle.ViewCiudadTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{ciudadController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_usuarioins}"/>
+                        <h:outputText value="#{ciudadController.selected.usuarioins}" title="#{bundle.ViewCiudadTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_fechains}"/>
+                        <h:outputText value="#{ciudadController.selected.fechains}" title="#{bundle.ViewCiudadTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_usuarioupd}"/>
+                        <h:outputText value="#{ciudadController.selected.usuarioupd}" title="#{bundle.ViewCiudadTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_fechaupd}"/>
+                        <h:outputText value="#{ciudadController.selected.fechaupd}" title="#{bundle.ViewCiudadTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_idpais}"/>
+                        <h:outputText value="#{ciudadController.selected.idpais}" title="#{bundle.ViewCiudadTitle_idpais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CiudadViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

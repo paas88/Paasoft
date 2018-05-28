@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductoViewDlg" widgetVar="ProductoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductoTitle}">
+            <h:form id="ProductoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductoLabel_idproducto}"/>
+                        <h:outputText value="#{productoController.selected.idproducto}" title="#{bundle.ViewProductoTitle_idproducto}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_nombre}"/>
+                        <h:outputText value="#{productoController.selected.nombre}" title="#{bundle.ViewProductoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_descripcion}"/>
+                        <h:outputText value="#{productoController.selected.descripcion}" title="#{bundle.ViewProductoTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_stock}"/>
+                        <p:selectBooleanCheckbox value="#{productoController.selected.stock}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{productoController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_compra}"/>
+                        <p:selectBooleanCheckbox value="#{productoController.selected.compra}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_venta}"/>
+                        <p:selectBooleanCheckbox value="#{productoController.selected.venta}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_codbar}"/>
+                        <h:outputText value="#{productoController.selected.codbar}" title="#{bundle.ViewProductoTitle_codbar}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_usuarioins}"/>
+                        <h:outputText value="#{productoController.selected.usuarioins}" title="#{bundle.ViewProductoTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_fechains}"/>
+                        <h:outputText value="#{productoController.selected.fechains}" title="#{bundle.ViewProductoTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProductoLabel_usuarioupd}"/>
+                        <h:outputText value="#{productoController.selected.usuarioupd}" title="#{bundle.ViewProductoTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_fechaupd}"/>
+                        <h:outputText value="#{productoController.selected.fechaupd}" title="#{bundle.ViewProductoTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idcategoria}"/>
+                        <h:outputText value="#{productoController.selected.idcategoria}" title="#{bundle.ViewProductoTitle_idcategoria}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idmarca}"/>
+                        <h:outputText value="#{productoController.selected.idmarca}" title="#{bundle.ViewProductoTitle_idmarca}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idunidadMedida}"/>
+                        <h:outputText value="#{productoController.selected.idunidadMedida}" title="#{bundle.ViewProductoTitle_idunidadMedida}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProductoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
