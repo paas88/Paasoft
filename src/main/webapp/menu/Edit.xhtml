@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MenuEditDlg" widgetVar="MenuEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMenuTitle}">
+            <h:form id="MenuEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{menuController.selected != null}">
+                        
+                        <p:outputLabel value="#{bundle.EditMenuLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{menuController.selected.nombre}" title="#{bundle.EditMenuTitle_nombre}" required="true" requiredMessage="#{bundle.EditMenuRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditMenuLabel_nivel}" for="nivel" />
+                        <p:inputText id="nivel" value="#{menuController.selected.nivel}" title="#{bundle.EditMenuTitle_nivel}" />
+                        <p:outputLabel value="#{bundle.EditMenuLabel_orden}" for="orden" />
+                        <p:inputText id="orden" value="#{menuController.selected.orden}" title="#{bundle.EditMenuTitle_orden}" />
+                        <p:outputLabel value="#{bundle.EditMenuLabel_url}" for="url" />
+                        <p:inputText id="url" value="#{menuController.selected.url}" title="#{bundle.EditMenuTitle_url}" />
+                        <p:outputLabel value="#{bundle.EditMenuLabel_icono}" for="icono" />
+                        <p:inputText id="icono" value="#{menuController.selected.icono}" title="#{bundle.EditMenuTitle_icono}" />
+                        <p:outputLabel value="#{bundle.EditMenuLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{menuController.selected.estado}" required="true" requiredMessage="#{bundle.EditMenuRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.EditMenuLabel_menuId}" for="menuId" />
+                        <p:selectOneMenu id="menuId" value="#{menuController.selected.menuId}" required="true" requiredMessage="#{bundle.EditMenuRequiredMessage_menuId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{menuController.itemsAvailableSelectOne}"
+                                           var="menuIdItem"
+                                           itemValue="#{menuIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{menuController.update}" value="#{bundle.Save}" update="display,:MenuListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MenuEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MenuEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

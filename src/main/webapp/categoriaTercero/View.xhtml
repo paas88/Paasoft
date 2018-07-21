@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CategoriaTerceroViewDlg" widgetVar="CategoriaTerceroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCategoriaTerceroTitle}">
+            <h:form id="CategoriaTerceroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{categoriaTerceroController.selected != null}">
+                        <h:outputText value="#{categoriaTerceroController.selected.idCategoriaTercero}" title="#{bundle.ViewCategoriaTerceroTitle_idCategoriaTercero}"/>
+                        <h:outputText value="#{bundle.ViewCategoriaTerceroLabel_nombre}"/>
+                        <h:outputText value="#{categoriaTerceroController.selected.nombre}" title="#{bundle.ViewCategoriaTerceroTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCategoriaTerceroLabel_descripcion}"/>
+                        <h:outputText value="#{categoriaTerceroController.selected.descripcion}" title="#{bundle.ViewCategoriaTerceroTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewCategoriaTerceroLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{categoriaTerceroController.selected.estado}" disabled="true"/>
+                       
+                       
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CategoriaTerceroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

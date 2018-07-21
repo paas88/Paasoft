@@ -153,7 +153,7 @@ public class TarifaController implements Serializable {
             }
             if (object instanceof Tarifa) {
                 Tarifa o = (Tarifa) object;
-                return getStringKey(o.getIdtarifa());
+                return getStringKey(o.getIdTarifa());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Tarifa.class.getName()});
                 return null;

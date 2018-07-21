@@ -12,26 +12,14 @@
             <h:form id="PaisViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{paisController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPaisLabel_idpais}"/>
-                        <h:outputText value="#{paisController.selected.idpais}" title="#{bundle.ViewPaisTitle_idpais}"/>
+                        
                         <h:outputText value="#{bundle.ViewPaisLabel_nombre}"/>
                         <h:outputText value="#{paisController.selected.nombre}" title="#{bundle.ViewPaisTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewPaisLabel_descripcion}"/>
                         <h:outputText value="#{paisController.selected.descripcion}" title="#{bundle.ViewPaisTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewPaisLabel_estado}"/>
                         <p:selectBooleanCheckbox value="#{paisController.selected.estado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewPaisLabel_usuarioins}"/>
-                        <h:outputText value="#{paisController.selected.usuarioins}" title="#{bundle.ViewPaisTitle_usuarioins}"/>
-                        <h:outputText value="#{bundle.ViewPaisLabel_fechains}"/>
-                        <h:outputText value="#{paisController.selected.fechains}" title="#{bundle.ViewPaisTitle_fechains}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewPaisLabel_usuarioupd}"/>
-                        <h:outputText value="#{paisController.selected.usuarioupd}" title="#{bundle.ViewPaisTitle_usuarioupd}"/>
-                        <h:outputText value="#{bundle.ViewPaisLabel_fechaupd}"/>
-                        <h:outputText value="#{paisController.selected.fechaupd}" title="#{bundle.ViewPaisTitle_fechaupd}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
+                       
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PaisViewDialog.hide()"/>
                 </h:panelGroup>

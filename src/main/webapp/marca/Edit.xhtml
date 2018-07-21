@@ -12,22 +12,14 @@
             <h:form id="MarcaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{marcaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditMarcaLabel_idmarca}" for="idmarca" />
-                        <p:inputText id="idmarca" value="#{marcaController.selected.idmarca}" title="#{bundle.EditMarcaTitle_idmarca}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_idmarca}"/>
+                        
                         <p:outputLabel value="#{bundle.EditMarcaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{marcaController.selected.nombre}" title="#{bundle.EditMarcaTitle_nombre}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditMarcaLabel_descripcion}" for="descripcion" />
                         <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{marcaController.selected.descripcion}" title="#{bundle.EditMarcaTitle_descripcion}" />
                         <p:outputLabel value="#{bundle.EditMarcaLabel_estado}" for="estado" />
                         <p:selectBooleanCheckbox id="estado" value="#{marcaController.selected.estado}" />
-                        <p:outputLabel value="#{bundle.EditMarcaLabel_usuarioins}" for="usuarioins" />
-                        <p:inputText id="usuarioins" value="#{marcaController.selected.usuarioins}" title="#{bundle.EditMarcaTitle_usuarioins}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_usuarioins}"/>
-                        <p:outputLabel value="#{bundle.EditMarcaLabel_fechains}" for="fechains" />
-                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{marcaController.selected.fechains}" title="#{bundle.EditMarcaTitle_fechains}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_fechains}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditMarcaLabel_usuarioupd}" for="usuarioupd" />
-                        <p:inputText id="usuarioupd" value="#{marcaController.selected.usuarioupd}" title="#{bundle.EditMarcaTitle_usuarioupd}" />
-                        <p:outputLabel value="#{bundle.EditMarcaLabel_fechaupd}" for="fechaupd" />
-                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{marcaController.selected.fechaupd}" title="#{bundle.EditMarcaTitle_fechaupd}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{marcaController.update}" value="#{bundle.Save}" update="display,:MarcaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MarcaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MarcaEditDialog.hide()"/>

@@ -153,7 +153,7 @@ public class UnidadMedidaController implements Serializable {
             }
             if (object instanceof UnidadMedida) {
                 UnidadMedida o = (UnidadMedida) object;
-                return getStringKey(o.getIdunidadMedida());
+                return getStringKey(o.getIdUnidadMedida());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), UnidadMedida.class.getName()});
                 return null;

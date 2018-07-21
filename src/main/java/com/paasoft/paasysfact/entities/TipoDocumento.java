@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TipoDocumento.findAll", query = "SELECT t FROM TipoDocumento t")
-    , @NamedQuery(name = "TipoDocumento.findByIdtipoDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.idtipoDocumento = :idtipoDocumento")
+    , @NamedQuery(name = "TipoDocumento.findByIdTipoDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.idTipoDocumento = :idTipoDocumento")
     , @NamedQuery(name = "TipoDocumento.findByNombre", query = "SELECT t FROM TipoDocumento t WHERE t.nombre = :nombre")
     , @NamedQuery(name = "TipoDocumento.findByEstado", query = "SELECT t FROM TipoDocumento t WHERE t.estado = :estado")
     , @NamedQuery(name = "TipoDocumento.findByUsuarioins", query = "SELECT t FROM TipoDocumento t WHERE t.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class TipoDocumento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idtipo_documento")
-    private Integer idtipoDocumento;
+    @Column(name = "id_tipo_documento")
+    private Integer idTipoDocumento;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -78,29 +78,29 @@ public class TipoDocumento implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idtipoDocumento")
-    private List<Proveedor> proveedorList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoDocumento")
+    private List<Tercero> terceroList;
 
     public TipoDocumento() {
     }
 
-    public TipoDocumento(Integer idtipoDocumento) {
-        this.idtipoDocumento = idtipoDocumento;
+    public TipoDocumento(Integer idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
-    public TipoDocumento(Integer idtipoDocumento, String nombre, String usuarioins, Date fechains) {
-        this.idtipoDocumento = idtipoDocumento;
+    public TipoDocumento(Integer idTipoDocumento, String nombre, String usuarioins, Date fechains) {
+        this.idTipoDocumento = idTipoDocumento;
         this.nombre = nombre;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdtipoDocumento() {
-        return idtipoDocumento;
+    public Integer getIdTipoDocumento() {
+        return idTipoDocumento;
     }
 
-    public void setIdtipoDocumento(Integer idtipoDocumento) {
-        this.idtipoDocumento = idtipoDocumento;
+    public void setIdTipoDocumento(Integer idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
     public String getNombre() {
@@ -160,18 +160,18 @@ public class TipoDocumento implements Serializable {
     }
 
     @XmlTransient
-    public List<Proveedor> getProveedorList() {
-        return proveedorList;
+    public List<Tercero> getTerceroList() {
+        return terceroList;
     }
 
-    public void setProveedorList(List<Proveedor> proveedorList) {
-        this.proveedorList = proveedorList;
+    public void setTerceroList(List<Tercero> terceroList) {
+        this.terceroList = terceroList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idtipoDocumento != null ? idtipoDocumento.hashCode() : 0);
+        hash += (idTipoDocumento != null ? idTipoDocumento.hashCode() : 0);
         return hash;
     }
 
@@ -182,7 +182,7 @@ public class TipoDocumento implements Serializable {
             return false;
         }
         TipoDocumento other = (TipoDocumento) object;
-        if ((this.idtipoDocumento == null && other.idtipoDocumento != null) || (this.idtipoDocumento != null && !this.idtipoDocumento.equals(other.idtipoDocumento))) {
+        if ((this.idTipoDocumento == null && other.idTipoDocumento != null) || (this.idTipoDocumento != null && !this.idTipoDocumento.equals(other.idTipoDocumento))) {
             return false;
         }
         return true;
@@ -190,7 +190,7 @@ public class TipoDocumento implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.TipoDocumento[ idtipoDocumento=" + idtipoDocumento + " ]";
+        return "com.paasoft.paasysfact.entities.TipoDocumento[ idTipoDocumento=" + idTipoDocumento + " ]";
     }
     
 }

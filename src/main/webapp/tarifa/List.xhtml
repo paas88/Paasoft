@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{tarifaController.items}" var="item"
                                  selectionMode="single" selection="#{tarifaController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idtarifa}"
+                                 rowKey="#{item.idTarifa}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_idtarifa}"/>
+                                <h:outputText value="#{bundle.ListTarifaTitle_idTarifa}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtarifa}"/>
+                            <h:outputText value="#{item.idTarifa}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

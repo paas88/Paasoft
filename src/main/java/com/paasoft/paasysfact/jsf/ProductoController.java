@@ -153,7 +153,7 @@ public class ProductoController implements Serializable {
             }
             if (object instanceof Producto) {
                 Producto o = (Producto) object;
-                return getStringKey(o.getIdproducto());
+                return getStringKey(o.getIdProducto());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Producto.class.getName()});
                 return null;

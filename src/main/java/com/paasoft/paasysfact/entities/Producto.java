@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")
-    , @NamedQuery(name = "Producto.findByIdproducto", query = "SELECT p FROM Producto p WHERE p.idproducto = :idproducto")
+    , @NamedQuery(name = "Producto.findByIdProducto", query = "SELECT p FROM Producto p WHERE p.idProducto = :idProducto")
     , @NamedQuery(name = "Producto.findByNombre", query = "SELECT p FROM Producto p WHERE p.nombre = :nombre")
     , @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "Producto.findByStock", query = "SELECT p FROM Producto p WHERE p.stock = :stock")
@@ -55,8 +55,8 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idproducto")
-    private Integer idproducto;
+    @Column(name = "id_producto")
+    private Integer idProducto;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -92,38 +92,41 @@ public class Producto implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idproducto")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
     private List<ProductoPrecio> productoPrecioList;
-    @JoinColumn(name = "idcategoria", referencedColumnName = "idcategoria")
+    @JoinColumn(name = "id_categoria_producto", referencedColumnName = "id_categoria_producto")
     @ManyToOne(optional = false)
-    private Categoria idcategoria;
-    @JoinColumn(name = "idmarca", referencedColumnName = "idmarca")
+    private CategoriaProducto idCategoriaProducto;
+    @JoinColumn(name = "id_clasificacion", referencedColumnName = "id_clasificacion")
     @ManyToOne(optional = false)
-    private Marca idmarca;
-    @JoinColumn(name = "idunidad_medida", referencedColumnName = "idunidad_medida")
+    private Clasificacion idClasificacion;
+    @JoinColumn(name = "id_marca", referencedColumnName = "id_marca")
     @ManyToOne(optional = false)
-    private UnidadMedida idunidadMedida;
+    private Marca idMarca;
+    @JoinColumn(name = "id_unidad_medida", referencedColumnName = "id_unidad_medida")
+    @ManyToOne(optional = false)
+    private UnidadMedida idUnidadMedida;
 
     public Producto() {
     }
 
-    public Producto(Integer idproducto) {
-        this.idproducto = idproducto;
+    public Producto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public Producto(Integer idproducto, String nombre, String usuarioins, Date fechains) {
-        this.idproducto = idproducto;
+    public Producto(Integer idProducto, String nombre, String usuarioins, Date fechains) {
+        this.idProducto = idProducto;
         this.nombre = nombre;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdproducto() {
-        return idproducto;
+    public Integer getIdProducto() {
+        return idProducto;
     }
 
-    public void setIdproducto(Integer idproducto) {
-        this.idproducto = idproducto;
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
@@ -223,34 +226,42 @@ public class Producto implements Serializable {
         this.productoPrecioList = productoPrecioList;
     }
 
-    public Categoria getIdcategoria() {
-        return idcategoria;
+    public CategoriaProducto getIdCategoriaProducto() {
+        return idCategoriaProducto;
     }
 
-    public void setIdcategoria(Categoria idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setIdCategoriaProducto(CategoriaProducto idCategoriaProducto) {
+        this.idCategoriaProducto = idCategoriaProducto;
     }
 
-    public Marca getIdmarca() {
-        return idmarca;
+    public Clasificacion getIdClasificacion() {
+        return idClasificacion;
     }
 
-    public void setIdmarca(Marca idmarca) {
-        this.idmarca = idmarca;
+    public void setIdClasificacion(Clasificacion idClasificacion) {
+        this.idClasificacion = idClasificacion;
     }
 
-    public UnidadMedida getIdunidadMedida() {
-        return idunidadMedida;
+    public Marca getIdMarca() {
+        return idMarca;
     }
 
-    public void setIdunidadMedida(UnidadMedida idunidadMedida) {
-        this.idunidadMedida = idunidadMedida;
+    public void setIdMarca(Marca idMarca) {
+        this.idMarca = idMarca;
+    }
+
+    public UnidadMedida getIdUnidadMedida() {
+        return idUnidadMedida;
+    }
+
+    public void setIdUnidadMedida(UnidadMedida idUnidadMedida) {
+        this.idUnidadMedida = idUnidadMedida;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idproducto != null ? idproducto.hashCode() : 0);
+        hash += (idProducto != null ? idProducto.hashCode() : 0);
         return hash;
     }
 
@@ -261,7 +272,7 @@ public class Producto implements Serializable {
             return false;
         }
         Producto other = (Producto) object;
-        if ((this.idproducto == null && other.idproducto != null) || (this.idproducto != null && !this.idproducto.equals(other.idproducto))) {
+        if ((this.idProducto == null && other.idProducto != null) || (this.idProducto != null && !this.idProducto.equals(other.idProducto))) {
             return false;
         }
         return true;
@@ -269,7 +280,7 @@ public class Producto implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Producto[ idproducto=" + idproducto + " ]";
+        return "com.paasoft.paasysfact.entities.Producto[ idProducto=" + idProducto + " ]";
     }
     
 }

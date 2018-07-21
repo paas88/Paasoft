@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Pais.findAll", query = "SELECT p FROM Pais p")
-    , @NamedQuery(name = "Pais.findByIdpais", query = "SELECT p FROM Pais p WHERE p.idpais = :idpais")
+    , @NamedQuery(name = "Pais.findByIdPais", query = "SELECT p FROM Pais p WHERE p.idPais = :idPais")
     , @NamedQuery(name = "Pais.findByNombre", query = "SELECT p FROM Pais p WHERE p.nombre = :nombre")
     , @NamedQuery(name = "Pais.findByEstado", query = "SELECT p FROM Pais p WHERE p.estado = :estado")
     , @NamedQuery(name = "Pais.findByUsuarioins", query = "SELECT p FROM Pais p WHERE p.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class Pais implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idpais")
-    private Integer idpais;
+    @Column(name = "id_pais")
+    private Integer idPais;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -80,30 +80,30 @@ public class Pais implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpais")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPais")
     private List<Ciudad> ciudadList;
 
     public Pais() {
     }
 
-    public Pais(Integer idpais) {
-        this.idpais = idpais;
+    public Pais(Integer idPais) {
+        this.idPais = idPais;
     }
 
-    public Pais(Integer idpais, String nombre, boolean estado, String usuarioins, Date fechains) {
-        this.idpais = idpais;
+    public Pais(Integer idPais, String nombre, boolean estado, String usuarioins, Date fechains) {
+        this.idPais = idPais;
         this.nombre = nombre;
         this.estado = estado;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdpais() {
-        return idpais;
+    public Integer getIdPais() {
+        return idPais;
     }
 
-    public void setIdpais(Integer idpais) {
-        this.idpais = idpais;
+    public void setIdPais(Integer idPais) {
+        this.idPais = idPais;
     }
 
     public String getNombre() {
@@ -174,7 +174,7 @@ public class Pais implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idpais != null ? idpais.hashCode() : 0);
+        hash += (idPais != null ? idPais.hashCode() : 0);
         return hash;
     }
 
@@ -185,7 +185,7 @@ public class Pais implements Serializable {
             return false;
         }
         Pais other = (Pais) object;
-        if ((this.idpais == null && other.idpais != null) || (this.idpais != null && !this.idpais.equals(other.idpais))) {
+        if ((this.idPais == null && other.idPais != null) || (this.idPais != null && !this.idPais.equals(other.idPais))) {
             return false;
         }
         return true;
@@ -193,7 +193,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Pais[ idpais=" + idpais + " ]";
+        return "com.paasoft.paasysfact.entities.Pais[ idPais=" + idPais + " ]";
     }
     
 }

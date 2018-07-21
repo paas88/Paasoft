@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{usuarioController.items}" var="item"
                                  selectionMode="single" selection="#{usuarioController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idusuario}"
+                                 rowKey="#{item.idUsuario}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_idusuario}"/>
+                                <h:outputText value="#{bundle.ListUsuarioTitle_idUsuario}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idusuario}"/>
+                            <h:outputText value="#{item.idUsuario}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -50,6 +50,12 @@
                                 <h:outputText value="#{bundle.ListUsuarioTitle_estado}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.estado}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -78,6 +84,12 @@
                             <h:outputText value="#{item.fechaupd}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsuarioTitle_idRol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRol}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>

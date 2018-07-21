@@ -153,7 +153,7 @@ public class MarcaController implements Serializable {
             }
             if (object instanceof Marca) {
                 Marca o = (Marca) object;
-                return getStringKey(o.getIdmarca());
+                return getStringKey(o.getIdMarca());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Marca.class.getName()});
                 return null;

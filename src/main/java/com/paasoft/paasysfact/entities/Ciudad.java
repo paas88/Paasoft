@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Ciudad.findAll", query = "SELECT c FROM Ciudad c")
-    , @NamedQuery(name = "Ciudad.findByIdciudad", query = "SELECT c FROM Ciudad c WHERE c.idciudad = :idciudad")
+    , @NamedQuery(name = "Ciudad.findByIdCiudad", query = "SELECT c FROM Ciudad c WHERE c.idCiudad = :idCiudad")
     , @NamedQuery(name = "Ciudad.findByNombre", query = "SELECT c FROM Ciudad c WHERE c.nombre = :nombre")
     , @NamedQuery(name = "Ciudad.findByEstado", query = "SELECT c FROM Ciudad c WHERE c.estado = :estado")
     , @NamedQuery(name = "Ciudad.findByUsuarioins", query = "SELECT c FROM Ciudad c WHERE c.usuarioins = :usuarioins")
@@ -51,8 +51,8 @@ public class Ciudad implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idciudad")
-    private Integer idciudad;
+    @Column(name = "id_ciudad")
+    private Integer idCiudad;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -82,33 +82,33 @@ public class Ciudad implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idciudad")
-    private List<ProveedorDireccion> proveedorDireccionList;
-    @JoinColumn(name = "idpais", referencedColumnName = "idpais")
+    @JoinColumn(name = "id_pais", referencedColumnName = "id_pais")
     @ManyToOne(optional = false)
-    private Pais idpais;
+    private Pais idPais;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idciudad")
+    private List<TerceroDireccion> terceroDireccionList;
 
     public Ciudad() {
     }
 
-    public Ciudad(Integer idciudad) {
-        this.idciudad = idciudad;
+    public Ciudad(Integer idCiudad) {
+        this.idCiudad = idCiudad;
     }
 
-    public Ciudad(Integer idciudad, String nombre, boolean estado, String usuarioins, Date fechains) {
-        this.idciudad = idciudad;
+    public Ciudad(Integer idCiudad, String nombre, boolean estado, String usuarioins, Date fechains) {
+        this.idCiudad = idCiudad;
         this.nombre = nombre;
         this.estado = estado;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdciudad() {
-        return idciudad;
+    public Integer getIdCiudad() {
+        return idCiudad;
     }
 
-    public void setIdciudad(Integer idciudad) {
-        this.idciudad = idciudad;
+    public void setIdCiudad(Integer idCiudad) {
+        this.idCiudad = idCiudad;
     }
 
     public String getNombre() {
@@ -167,27 +167,27 @@ public class Ciudad implements Serializable {
         this.fechaupd = fechaupd;
     }
 
+    public Pais getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(Pais idPais) {
+        this.idPais = idPais;
+    }
+
     @XmlTransient
-    public List<ProveedorDireccion> getProveedorDireccionList() {
-        return proveedorDireccionList;
+    public List<TerceroDireccion> getTerceroDireccionList() {
+        return terceroDireccionList;
     }
 
-    public void setProveedorDireccionList(List<ProveedorDireccion> proveedorDireccionList) {
-        this.proveedorDireccionList = proveedorDireccionList;
-    }
-
-    public Pais getIdpais() {
-        return idpais;
-    }
-
-    public void setIdpais(Pais idpais) {
-        this.idpais = idpais;
+    public void setTerceroDireccionList(List<TerceroDireccion> terceroDireccionList) {
+        this.terceroDireccionList = terceroDireccionList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idciudad != null ? idciudad.hashCode() : 0);
+        hash += (idCiudad != null ? idCiudad.hashCode() : 0);
         return hash;
     }
 
@@ -198,7 +198,7 @@ public class Ciudad implements Serializable {
             return false;
         }
         Ciudad other = (Ciudad) object;
-        if ((this.idciudad == null && other.idciudad != null) || (this.idciudad != null && !this.idciudad.equals(other.idciudad))) {
+        if ((this.idCiudad == null && other.idCiudad != null) || (this.idCiudad != null && !this.idCiudad.equals(other.idCiudad))) {
             return false;
         }
         return true;
@@ -206,7 +206,7 @@ public class Ciudad implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Ciudad[ idciudad=" + idciudad + " ]";
+        return "com.paasoft.paasysfact.entities.Ciudad[ idCiudad=" + idCiudad + " ]";
     }
     
 }

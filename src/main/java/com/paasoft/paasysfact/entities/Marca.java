@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Marca.findAll", query = "SELECT m FROM Marca m")
-    , @NamedQuery(name = "Marca.findByIdmarca", query = "SELECT m FROM Marca m WHERE m.idmarca = :idmarca")
+    , @NamedQuery(name = "Marca.findByIdMarca", query = "SELECT m FROM Marca m WHERE m.idMarca = :idMarca")
     , @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre")
     , @NamedQuery(name = "Marca.findByEstado", query = "SELECT m FROM Marca m WHERE m.estado = :estado")
     , @NamedQuery(name = "Marca.findByUsuarioins", query = "SELECT m FROM Marca m WHERE m.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class Marca implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idmarca")
-    private Integer idmarca;
+    @Column(name = "id_marca")
+    private Integer idMarca;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -78,29 +78,29 @@ public class Marca implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idmarca")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMarca")
     private List<Producto> productoList;
 
     public Marca() {
     }
 
-    public Marca(Integer idmarca) {
-        this.idmarca = idmarca;
+    public Marca(Integer idMarca) {
+        this.idMarca = idMarca;
     }
 
-    public Marca(Integer idmarca, String nombre, String usuarioins, Date fechains) {
-        this.idmarca = idmarca;
+    public Marca(Integer idMarca, String nombre, String usuarioins, Date fechains) {
+        this.idMarca = idMarca;
         this.nombre = nombre;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdmarca() {
-        return idmarca;
+    public Integer getIdMarca() {
+        return idMarca;
     }
 
-    public void setIdmarca(Integer idmarca) {
-        this.idmarca = idmarca;
+    public void setIdMarca(Integer idMarca) {
+        this.idMarca = idMarca;
     }
 
     public String getNombre() {
@@ -171,7 +171,7 @@ public class Marca implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idmarca != null ? idmarca.hashCode() : 0);
+        hash += (idMarca != null ? idMarca.hashCode() : 0);
         return hash;
     }
 
@@ -182,7 +182,7 @@ public class Marca implements Serializable {
             return false;
         }
         Marca other = (Marca) object;
-        if ((this.idmarca == null && other.idmarca != null) || (this.idmarca != null && !this.idmarca.equals(other.idmarca))) {
+        if ((this.idMarca == null && other.idMarca != null) || (this.idMarca != null && !this.idMarca.equals(other.idMarca))) {
             return false;
         }
         return true;
@@ -190,7 +190,7 @@ public class Marca implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Marca[ idmarca=" + idmarca + " ]";
+        return "com.paasoft.paasysfact.entities.Marca[ idMarca=" + idMarca + " ]";
     }
     
 }

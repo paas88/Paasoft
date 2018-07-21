@@ -12,8 +12,8 @@
             <h:form id="TarifaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tarifaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditTarifaLabel_idtarifa}" for="idtarifa" />
-                        <p:inputText id="idtarifa" value="#{tarifaController.selected.idtarifa}" title="#{bundle.EditTarifaTitle_idtarifa}" required="true" requiredMessage="#{bundle.EditTarifaRequiredMessage_idtarifa}"/>
+                        <p:outputLabel value="#{bundle.EditTarifaLabel_idTarifa}" for="idTarifa" />
+                        <p:inputText id="idTarifa" value="#{tarifaController.selected.idTarifa}" title="#{bundle.EditTarifaTitle_idTarifa}" required="true" requiredMessage="#{bundle.EditTarifaRequiredMessage_idTarifa}"/>
                         <p:outputLabel value="#{bundle.EditTarifaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{tarifaController.selected.nombre}" title="#{bundle.EditTarifaTitle_nombre}" required="true" requiredMessage="#{bundle.EditTarifaRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditTarifaLabel_descripcion}" for="descripcion" />

@@ -12,28 +12,17 @@
             <h:form id="CiudadViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ciudadController.selected != null}">
-                        <h:outputText value="#{bundle.ViewCiudadLabel_idciudad}"/>
-                        <h:outputText value="#{ciudadController.selected.idciudad}" title="#{bundle.ViewCiudadTitle_idciudad}"/>
+                 
                         <h:outputText value="#{bundle.ViewCiudadLabel_nombre}"/>
                         <h:outputText value="#{ciudadController.selected.nombre}" title="#{bundle.ViewCiudadTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewCiudadLabel_descripcion}"/>
                         <h:outputText value="#{ciudadController.selected.descripcion}" title="#{bundle.ViewCiudadTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewCiudadLabel_estado}"/>
                         <p:selectBooleanCheckbox value="#{ciudadController.selected.estado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_usuarioins}"/>
-                        <h:outputText value="#{ciudadController.selected.usuarioins}" title="#{bundle.ViewCiudadTitle_usuarioins}"/>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_fechains}"/>
-                        <h:outputText value="#{ciudadController.selected.fechains}" title="#{bundle.ViewCiudadTitle_fechains}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                      
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_usuarioupd}"/>
-                        <h:outputText value="#{ciudadController.selected.usuarioupd}" title="#{bundle.ViewCiudadTitle_usuarioupd}"/>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_fechaupd}"/>
-                        <h:outputText value="#{ciudadController.selected.fechaupd}" title="#{bundle.ViewCiudadTitle_fechaupd}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_idpais}"/>
-                        <h:outputText value="#{ciudadController.selected.idpais}" title="#{bundle.ViewCiudadTitle_idpais}"/>
+                        <h:outputText value="#{bundle.ViewCiudadLabel_idPais}"/>
+                        <h:outputText value="#{ciudadController.selected.idPais}" title="#{bundle.ViewCiudadTitle_idPais}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CiudadViewDialog.hide()"/>
                 </h:panelGroup>

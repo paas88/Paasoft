@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,10 +33,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
-    , @NamedQuery(name = "Usuario.findByIdusuario", query = "SELECT u FROM Usuario u WHERE u.idusuario = :idusuario")
+    , @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")
     , @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario")
     , @NamedQuery(name = "Usuario.findByContrase\u00f1a", query = "SELECT u FROM Usuario u WHERE u.contrase\u00f1a = :contrase\u00f1a")
     , @NamedQuery(name = "Usuario.findByEstado", query = "SELECT u FROM Usuario u WHERE u.estado = :estado")
+    , @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email")
     , @NamedQuery(name = "Usuario.findByUsuarioins", query = "SELECT u FROM Usuario u WHERE u.usuarioins = :usuarioins")
     , @NamedQuery(name = "Usuario.findByFechains", query = "SELECT u FROM Usuario u WHERE u.fechains = :fechains")
     , @NamedQuery(name = "Usuario.findByUsuarioupd", query = "SELECT u FROM Usuario u WHERE u.usuarioupd = :usuarioupd")
@@ -45,8 +48,8 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idusuario")
-    private Integer idusuario;
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -61,6 +64,12 @@ public class Usuario implements Serializable {
     @NotNull
     @Column(name = "estado")
     private boolean estado;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
+    @Column(name = "email")
+    private String email;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -77,29 +86,33 @@ public class Usuario implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
+    @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
+    @ManyToOne(optional = false)
+    private Rol idRol;
 
     public Usuario() {
     }
 
-    public Usuario(Integer idusuario) {
-        this.idusuario = idusuario;
+    public Usuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idusuario, String usuario, String contraseña, boolean estado, String usuarioins, Date fechains) {
-        this.idusuario = idusuario;
+    public Usuario(Integer idUsuario, String usuario, String contraseña, boolean estado, String email, String usuarioins, Date fechains) {
+        this.idUsuario = idUsuario;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.estado = estado;
+        this.email = email;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdusuario() {
-        return idusuario;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getUsuario() {
@@ -124,6 +137,14 @@ public class Usuario implements Serializable {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsuarioins() {
@@ -158,10 +179,18 @@ public class Usuario implements Serializable {
         this.fechaupd = fechaupd;
     }
 
+    public Rol getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idusuario != null ? idusuario.hashCode() : 0);
+        hash += (idUsuario != null ? idUsuario.hashCode() : 0);
         return hash;
     }
 
@@ -172,7 +201,7 @@ public class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.idusuario == null && other.idusuario != null) || (this.idusuario != null && !this.idusuario.equals(other.idusuario))) {
+        if ((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
             return false;
         }
         return true;
@@ -180,7 +209,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Usuario[ idusuario=" + idusuario + " ]";
+        return "com.paasoft.paasysfact.entities.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

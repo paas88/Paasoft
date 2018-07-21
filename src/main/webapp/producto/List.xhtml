@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{productoController.items}" var="item"
                                  selectionMode="single" selection="#{productoController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idproducto}"
+                                 rowKey="#{item.idProducto}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -27,12 +27,7 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_idproducto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idproducto}"/>
-                        </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoTitle_nombre}"/>
@@ -75,51 +70,30 @@
                             </f:facet>
                             <h:outputText value="#{item.codbar}"/>
                         </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_usuarioins}"/>
+                                <h:outputText value="#{bundle.ListProductoTitle_idCategoriaProducto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.usuarioins}"/>
+                            <h:outputText value="#{item.idCategoriaProducto}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_fechains}"/>
+                                <h:outputText value="#{bundle.ListProductoTitle_idClasificacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fechains}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
+                            <h:outputText value="#{item.idClasificacion}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_usuarioupd}"/>
+                                <h:outputText value="#{bundle.ListProductoTitle_idMarca}"/>
                             </f:facet>
-                            <h:outputText value="#{item.usuarioupd}"/>
+                            <h:outputText value="#{item.idMarca}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_fechaupd}"/>
+                                <h:outputText value="#{bundle.ListProductoTitle_idUnidadMedida}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fechaupd}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_idcategoria}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcategoria}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_idmarca}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idmarca}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoTitle_idunidadMedida}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idunidadMedida}"/>
+                            <h:outputText value="#{item.idUnidadMedida}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{productoController.prepareCreate}" update=":ProductoCreateForm" oncomplete="PF('ProductoCreateDialog').show()"/>

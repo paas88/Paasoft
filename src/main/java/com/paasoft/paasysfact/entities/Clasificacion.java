@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Clasificacion.findAll", query = "SELECT c FROM Clasificacion c")
-    , @NamedQuery(name = "Clasificacion.findByIdclasificacion", query = "SELECT c FROM Clasificacion c WHERE c.idclasificacion = :idclasificacion")
+    , @NamedQuery(name = "Clasificacion.findByIdClasificacion", query = "SELECT c FROM Clasificacion c WHERE c.idClasificacion = :idClasificacion")
     , @NamedQuery(name = "Clasificacion.findByNombre", query = "SELECT c FROM Clasificacion c WHERE c.nombre = :nombre")
     , @NamedQuery(name = "Clasificacion.findByEstado", query = "SELECT c FROM Clasificacion c WHERE c.estado = :estado")
     , @NamedQuery(name = "Clasificacion.findByUsuarioins", query = "SELECT c FROM Clasificacion c WHERE c.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class Clasificacion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idclasificacion")
-    private Integer idclasificacion;
+    @Column(name = "id_clasificacion")
+    private Integer idClasificacion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -80,30 +80,30 @@ public class Clasificacion implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idclasificacion")
-    private List<Proveedor> proveedorList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClasificacion")
+    private List<Producto> productoList;
 
     public Clasificacion() {
     }
 
-    public Clasificacion(Integer idclasificacion) {
-        this.idclasificacion = idclasificacion;
+    public Clasificacion(Integer idClasificacion) {
+        this.idClasificacion = idClasificacion;
     }
 
-    public Clasificacion(Integer idclasificacion, String nombre, boolean estado, String usuarioins, Date fechains) {
-        this.idclasificacion = idclasificacion;
+    public Clasificacion(Integer idClasificacion, String nombre, boolean estado, String usuarioins, Date fechains) {
+        this.idClasificacion = idClasificacion;
         this.nombre = nombre;
         this.estado = estado;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdclasificacion() {
-        return idclasificacion;
+    public Integer getIdClasificacion() {
+        return idClasificacion;
     }
 
-    public void setIdclasificacion(Integer idclasificacion) {
-        this.idclasificacion = idclasificacion;
+    public void setIdClasificacion(Integer idClasificacion) {
+        this.idClasificacion = idClasificacion;
     }
 
     public String getNombre() {
@@ -163,18 +163,18 @@ public class Clasificacion implements Serializable {
     }
 
     @XmlTransient
-    public List<Proveedor> getProveedorList() {
-        return proveedorList;
+    public List<Producto> getProductoList() {
+        return productoList;
     }
 
-    public void setProveedorList(List<Proveedor> proveedorList) {
-        this.proveedorList = proveedorList;
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idclasificacion != null ? idclasificacion.hashCode() : 0);
+        hash += (idClasificacion != null ? idClasificacion.hashCode() : 0);
         return hash;
     }
 
@@ -185,7 +185,7 @@ public class Clasificacion implements Serializable {
             return false;
         }
         Clasificacion other = (Clasificacion) object;
-        if ((this.idclasificacion == null && other.idclasificacion != null) || (this.idclasificacion != null && !this.idclasificacion.equals(other.idclasificacion))) {
+        if ((this.idClasificacion == null && other.idClasificacion != null) || (this.idClasificacion != null && !this.idClasificacion.equals(other.idClasificacion))) {
             return false;
         }
         return true;
@@ -193,7 +193,7 @@ public class Clasificacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Clasificacion[ idclasificacion=" + idclasificacion + " ]";
+        return "com.paasoft.paasysfact.entities.Clasificacion[ idClasificacion=" + idClasificacion + " ]";
     }
     
 }

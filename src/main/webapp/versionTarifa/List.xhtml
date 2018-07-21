@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{versionTarifaController.items}" var="item"
                                  selectionMode="single" selection="#{versionTarifaController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idversionTarifa}"
+                                 rowKey="#{item.idVersionTarifa}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVersionTarifaTitle_idversionTarifa}"/>
+                                <h:outputText value="#{bundle.ListVersionTarifaTitle_idVersionTarifa}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idversionTarifa}"/>
+                            <h:outputText value="#{item.idVersionTarifa}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -97,9 +97,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVersionTarifaTitle_idtarifa}"/>
+                                <h:outputText value="#{bundle.ListVersionTarifaTitle_tarifaIdTarifa}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtarifa}"/>
+                            <h:outputText value="#{item.tarifaIdTarifa}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{versionTarifaController.prepareCreate}" update=":VersionTarifaCreateForm" oncomplete="PF('VersionTarifaCreateDialog').show()"/>

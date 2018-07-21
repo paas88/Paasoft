@@ -12,26 +12,14 @@
             <h:form id="MarcaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{marcaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewMarcaLabel_idmarca}"/>
-                        <h:outputText value="#{marcaController.selected.idmarca}" title="#{bundle.ViewMarcaTitle_idmarca}"/>
+                        
                         <h:outputText value="#{bundle.ViewMarcaLabel_nombre}"/>
                         <h:outputText value="#{marcaController.selected.nombre}" title="#{bundle.ViewMarcaTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewMarcaLabel_descripcion}"/>
                         <h:outputText value="#{marcaController.selected.descripcion}" title="#{bundle.ViewMarcaTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewMarcaLabel_estado}"/>
                         <p:selectBooleanCheckbox value="#{marcaController.selected.estado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewMarcaLabel_usuarioins}"/>
-                        <h:outputText value="#{marcaController.selected.usuarioins}" title="#{bundle.ViewMarcaTitle_usuarioins}"/>
-                        <h:outputText value="#{bundle.ViewMarcaLabel_fechains}"/>
-                        <h:outputText value="#{marcaController.selected.fechains}" title="#{bundle.ViewMarcaTitle_fechains}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewMarcaLabel_usuarioupd}"/>
-                        <h:outputText value="#{marcaController.selected.usuarioupd}" title="#{bundle.ViewMarcaTitle_usuarioupd}"/>
-                        <h:outputText value="#{bundle.ViewMarcaLabel_fechaupd}"/>
-                        <h:outputText value="#{marcaController.selected.fechaupd}" title="#{bundle.ViewMarcaTitle_fechaupd}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
+                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="MarcaViewDialog.hide()"/>
                 </h:panelGroup>

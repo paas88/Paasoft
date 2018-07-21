@@ -153,7 +153,7 @@ public class VersionTarifaController implements Serializable {
             }
             if (object instanceof VersionTarifa) {
                 VersionTarifa o = (VersionTarifa) object;
-                return getStringKey(o.getIdversionTarifa());
+                return getStringKey(o.getIdVersionTarifa());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), VersionTarifa.class.getName()});
                 return null;

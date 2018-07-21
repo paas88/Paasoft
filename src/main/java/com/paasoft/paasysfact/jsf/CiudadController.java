@@ -153,7 +153,7 @@ public class CiudadController implements Serializable {
             }
             if (object instanceof Ciudad) {
                 Ciudad o = (Ciudad) object;
-                return getStringKey(o.getIdciudad());
+                return getStringKey(o.getIdCiudad());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Ciudad.class.getName()});
                 return null;

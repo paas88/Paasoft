@@ -153,7 +153,7 @@ public class PaisController implements Serializable {
             }
             if (object instanceof Pais) {
                 Pais o = (Pais) object;
-                return getStringKey(o.getIdpais());
+                return getStringKey(o.getIdPais());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Pais.class.getName()});
                 return null;

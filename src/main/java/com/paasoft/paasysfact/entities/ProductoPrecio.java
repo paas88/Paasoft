@@ -70,12 +70,12 @@ public class ProductoPrecio implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @JoinColumn(name = "idproducto", referencedColumnName = "idproducto")
+    @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
     @ManyToOne(optional = false)
-    private Producto idproducto;
-    @JoinColumn(name = "idversion_tarifa", referencedColumnName = "idversion_tarifa")
+    private Producto idProducto;
+    @JoinColumn(name = "id_version_tarifa", referencedColumnName = "id_version_tarifa")
     @ManyToOne(optional = false)
-    private VersionTarifa idversionTarifa;
+    private VersionTarifa idVersionTarifa;
 
     public ProductoPrecio() {
     }
@@ -146,20 +146,20 @@ public class ProductoPrecio implements Serializable {
         this.fechaupd = fechaupd;
     }
 
-    public Producto getIdproducto() {
-        return idproducto;
+    public Producto getIdProducto() {
+        return idProducto;
     }
 
-    public void setIdproducto(Producto idproducto) {
-        this.idproducto = idproducto;
+    public void setIdProducto(Producto idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public VersionTarifa getIdversionTarifa() {
-        return idversionTarifa;
+    public VersionTarifa getIdVersionTarifa() {
+        return idVersionTarifa;
     }
 
-    public void setIdversionTarifa(VersionTarifa idversionTarifa) {
-        this.idversionTarifa = idversionTarifa;
+    public void setIdVersionTarifa(VersionTarifa idVersionTarifa) {
+        this.idVersionTarifa = idVersionTarifa;
     }
 
     @Override

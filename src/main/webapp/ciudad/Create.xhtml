@@ -12,27 +12,19 @@
             <h:form id="CiudadCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ciudadController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_idciudad}" for="idciudad" />
-                        <p:inputText id="idciudad" value="#{ciudadController.selected.idciudad}" title="#{bundle.CreateCiudadTitle_idciudad}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_idciudad}"/>
+                        <p:inputText id="idCiudad" value="#{ciudadController.selected.idCiudad}" title="#{bundle.CreateCiudadTitle_idCiudad}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_idCiudad}"/>
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{ciudadController.selected.nombre}" title="#{bundle.CreateCiudadTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_descripcion}" for="descripcion" />
                         <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{ciudadController.selected.descripcion}" title="#{bundle.CreateCiudadTitle_descripcion}" />
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_estado}" for="estado" />
                         <p:selectBooleanCheckbox id="estado" value="#{ciudadController.selected.estado}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_estado}"/>
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_usuarioins}" for="usuarioins" />
-                        <p:inputText id="usuarioins" value="#{ciudadController.selected.usuarioins}" title="#{bundle.CreateCiudadTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_usuarioins}"/>
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_fechains}" for="fechains" />
-                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{ciudadController.selected.fechains}" title="#{bundle.EditCiudadTitle_fechains}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_fechains}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_usuarioupd}" for="usuarioupd" />
-                        <p:inputText id="usuarioupd" value="#{ciudadController.selected.usuarioupd}" title="#{bundle.CreateCiudadTitle_usuarioupd}" />
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_fechaupd}" for="fechaupd" />
-                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{ciudadController.selected.fechaupd}" title="#{bundle.EditCiudadTitle_fechaupd}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCiudadLabel_idpais}" for="idpais" />
-                        <p:selectOneMenu id="idpais" value="#{ciudadController.selected.idpais}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_idpais}">
+                        ndar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{ciudadController.selected.fechaupd}" title="#{bundle.EditCiudadTitle_fechaupd}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCiudadLabel_idPais}" for="idPais" />
+                        <p:selectOneMenu id="idPais" value="#{ciudadController.selected.idPais}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_idPais}">
                             <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
-                                           var="idpaisItem"
-                                           itemValue="#{idpaisItem}"/>
+                                           var="idPaisItem"
+                                           itemValue="#{idPaisItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{ciudadController.create}" value="#{bundle.Save}" update="display,:CiudadListForm:datalist,:growl" oncomplete="handleSubmit(args,'CiudadCreateDialog');"/>

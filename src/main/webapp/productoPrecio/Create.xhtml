@@ -12,31 +12,23 @@
             <h:form id="ProductoPrecioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{productoPrecioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_productoPrecioId}" for="productoPrecioId" />
-                        <p:inputText id="productoPrecioId" value="#{productoPrecioController.selected.productoPrecioId}" title="#{bundle.CreateProductoPrecioTitle_productoPrecioId}" required="true" requiredMessage="#{bundle.CreateProductoPrecioRequiredMessage_productoPrecioId}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_precioLista}" for="precioLista" />
                         <p:inputText id="precioLista" value="#{productoPrecioController.selected.precioLista}" title="#{bundle.CreateProductoPrecioTitle_precioLista}" />
                         <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_precioGeneral}" for="precioGeneral" />
                         <p:inputText id="precioGeneral" value="#{productoPrecioController.selected.precioGeneral}" title="#{bundle.CreateProductoPrecioTitle_precioGeneral}" />
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_usuarioins}" for="usuarioins" />
-                        <p:inputText id="usuarioins" value="#{productoPrecioController.selected.usuarioins}" title="#{bundle.CreateProductoPrecioTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateProductoPrecioRequiredMessage_usuarioins}"/>
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_fechains}" for="fechains" />
-                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{productoPrecioController.selected.fechains}" title="#{bundle.EditProductoPrecioTitle_fechains}" required="true" requiredMessage="#{bundle.EditProductoPrecioRequiredMessage_fechains}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_usuarioupd}" for="usuarioupd" />
-                        <p:inputText id="usuarioupd" value="#{productoPrecioController.selected.usuarioupd}" title="#{bundle.CreateProductoPrecioTitle_usuarioupd}" />
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_fechaupd}" for="fechaupd" />
-                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{productoPrecioController.selected.fechaupd}" title="#{bundle.EditProductoPrecioTitle_fechaupd}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_idproducto}" for="idproducto" />
-                        <p:selectOneMenu id="idproducto" value="#{productoPrecioController.selected.idproducto}" required="true" requiredMessage="#{bundle.EditProductoPrecioRequiredMessage_idproducto}">
+                        
+                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_idProducto}" for="idProducto" />
+                        <p:selectOneMenu id="idProducto" value="#{productoPrecioController.selected.idProducto}" required="true" requiredMessage="#{bundle.EditProductoPrecioRequiredMessage_idProducto}">
                             <f:selectItems value="#{productoController.itemsAvailableSelectOne}"
-                                           var="idproductoItem"
-                                           itemValue="#{idproductoItem}"/>
+                                           var="idProductoItem"
+                                           itemValue="#{idProductoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_idversionTarifa}" for="idversionTarifa" />
-                        <p:selectOneMenu id="idversionTarifa" value="#{productoPrecioController.selected.idversionTarifa}" required="true" requiredMessage="#{bundle.EditProductoPrecioRequiredMessage_idversionTarifa}">
+                        <p:outputLabel value="#{bundle.CreateProductoPrecioLabel_idVersionTarifa}" for="idVersionTarifa" />
+                        <p:selectOneMenu id="idVersionTarifa" value="#{productoPrecioController.selected.idVersionTarifa}" required="true" requiredMessage="#{bundle.EditProductoPrecioRequiredMessage_idVersionTarifa}">
                             <f:selectItems value="#{versionTarifaController.itemsAvailableSelectOne}"
-                                           var="idversionTarifaItem"
-                                           itemValue="#{idversionTarifaItem}"/>
+                                           var="idVersionTarifaItem"
+                                           itemValue="#{idVersionTarifaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{productoPrecioController.create}" value="#{bundle.Save}" update="display,:ProductoPrecioListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProductoPrecioCreateDialog');"/>

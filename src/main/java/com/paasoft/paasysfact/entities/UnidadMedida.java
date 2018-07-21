@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "UnidadMedida.findAll", query = "SELECT u FROM UnidadMedida u")
-    , @NamedQuery(name = "UnidadMedida.findByIdunidadMedida", query = "SELECT u FROM UnidadMedida u WHERE u.idunidadMedida = :idunidadMedida")
+    , @NamedQuery(name = "UnidadMedida.findByIdUnidadMedida", query = "SELECT u FROM UnidadMedida u WHERE u.idUnidadMedida = :idUnidadMedida")
     , @NamedQuery(name = "UnidadMedida.findByNombre", query = "SELECT u FROM UnidadMedida u WHERE u.nombre = :nombre")
     , @NamedQuery(name = "UnidadMedida.findByEstado", query = "SELECT u FROM UnidadMedida u WHERE u.estado = :estado")
     , @NamedQuery(name = "UnidadMedida.findByUsuarioins", query = "SELECT u FROM UnidadMedida u WHERE u.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class UnidadMedida implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idunidad_medida")
-    private Integer idunidadMedida;
+    @Column(name = "id_unidad_medida")
+    private Integer idUnidadMedida;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -80,30 +80,30 @@ public class UnidadMedida implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idunidadMedida")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadMedida")
     private List<Producto> productoList;
 
     public UnidadMedida() {
     }
 
-    public UnidadMedida(Integer idunidadMedida) {
-        this.idunidadMedida = idunidadMedida;
+    public UnidadMedida(Integer idUnidadMedida) {
+        this.idUnidadMedida = idUnidadMedida;
     }
 
-    public UnidadMedida(Integer idunidadMedida, String nombre, boolean estado, String usuarioins, Date fechains) {
-        this.idunidadMedida = idunidadMedida;
+    public UnidadMedida(Integer idUnidadMedida, String nombre, boolean estado, String usuarioins, Date fechains) {
+        this.idUnidadMedida = idUnidadMedida;
         this.nombre = nombre;
         this.estado = estado;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdunidadMedida() {
-        return idunidadMedida;
+    public Integer getIdUnidadMedida() {
+        return idUnidadMedida;
     }
 
-    public void setIdunidadMedida(Integer idunidadMedida) {
-        this.idunidadMedida = idunidadMedida;
+    public void setIdUnidadMedida(Integer idUnidadMedida) {
+        this.idUnidadMedida = idUnidadMedida;
     }
 
     public String getNombre() {
@@ -174,7 +174,7 @@ public class UnidadMedida implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idunidadMedida != null ? idunidadMedida.hashCode() : 0);
+        hash += (idUnidadMedida != null ? idUnidadMedida.hashCode() : 0);
         return hash;
     }
 
@@ -185,7 +185,7 @@ public class UnidadMedida implements Serializable {
             return false;
         }
         UnidadMedida other = (UnidadMedida) object;
-        if ((this.idunidadMedida == null && other.idunidadMedida != null) || (this.idunidadMedida != null && !this.idunidadMedida.equals(other.idunidadMedida))) {
+        if ((this.idUnidadMedida == null && other.idUnidadMedida != null) || (this.idUnidadMedida != null && !this.idUnidadMedida.equals(other.idUnidadMedida))) {
             return false;
         }
         return true;
@@ -193,7 +193,7 @@ public class UnidadMedida implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.UnidadMedida[ idunidadMedida=" + idunidadMedida + " ]";
+        return "com.paasoft.paasysfact.entities.UnidadMedida[ idUnidadMedida=" + idUnidadMedida + " ]";
     }
     
 }

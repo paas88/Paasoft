@@ -12,26 +12,14 @@
             <h:form id="ClasificacionViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{clasificacionController.selected != null}">
-                        <h:outputText value="#{bundle.ViewClasificacionLabel_idclasificacion}"/>
-                        <h:outputText value="#{clasificacionController.selected.idclasificacion}" title="#{bundle.ViewClasificacionTitle_idclasificacion}"/>
+                       
                         <h:outputText value="#{bundle.ViewClasificacionLabel_nombre}"/>
                         <h:outputText value="#{clasificacionController.selected.nombre}" title="#{bundle.ViewClasificacionTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewClasificacionLabel_descripcion}"/>
                         <h:outputText value="#{clasificacionController.selected.descripcion}" title="#{bundle.ViewClasificacionTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewClasificacionLabel_estado}"/>
                         <p:selectBooleanCheckbox value="#{clasificacionController.selected.estado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewClasificacionLabel_usuarioins}"/>
-                        <h:outputText value="#{clasificacionController.selected.usuarioins}" title="#{bundle.ViewClasificacionTitle_usuarioins}"/>
-                        <h:outputText value="#{bundle.ViewClasificacionLabel_fechains}"/>
-                        <h:outputText value="#{clasificacionController.selected.fechains}" title="#{bundle.ViewClasificacionTitle_fechains}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewClasificacionLabel_usuarioupd}"/>
-                        <h:outputText value="#{clasificacionController.selected.usuarioupd}" title="#{bundle.ViewClasificacionTitle_usuarioupd}"/>
-                        <h:outputText value="#{bundle.ViewClasificacionLabel_fechaupd}"/>
-                        <h:outputText value="#{clasificacionController.selected.fechaupd}" title="#{bundle.ViewClasificacionTitle_fechaupd}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
+                       
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ClasificacionViewDialog.hide()"/>
                 </h:panelGroup>

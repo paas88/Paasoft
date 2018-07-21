@@ -12,8 +12,8 @@
             <h:form id="VersionTarifaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{versionTarifaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_idversionTarifa}" for="idversionTarifa" />
-                        <p:inputText id="idversionTarifa" value="#{versionTarifaController.selected.idversionTarifa}" title="#{bundle.EditVersionTarifaTitle_idversionTarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_idversionTarifa}"/>
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_idVersionTarifa}" for="idVersionTarifa" />
+                        <p:inputText id="idVersionTarifa" value="#{versionTarifaController.selected.idVersionTarifa}" title="#{bundle.EditVersionTarifaTitle_idVersionTarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_idVersionTarifa}"/>
                         <p:outputLabel value="#{bundle.EditVersionTarifaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{versionTarifaController.selected.nombre}" title="#{bundle.EditVersionTarifaTitle_nombre}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditVersionTarifaLabel_descripcion}" for="descripcion" />
@@ -32,12 +32,12 @@
                         <p:inputText id="usuarioupd" value="#{versionTarifaController.selected.usuarioupd}" title="#{bundle.EditVersionTarifaTitle_usuarioupd}" />
                         <p:outputLabel value="#{bundle.EditVersionTarifaLabel_fechaupd}" for="fechaupd" />
                         <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{versionTarifaController.selected.fechaupd}" title="#{bundle.EditVersionTarifaTitle_fechaupd}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_idtarifa}" for="idtarifa" />
-                        <p:selectOneMenu id="idtarifa" value="#{versionTarifaController.selected.idtarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_idtarifa}">
+                        <p:outputLabel value="#{bundle.EditVersionTarifaLabel_tarifaIdTarifa}" for="tarifaIdTarifa" />
+                        <p:selectOneMenu id="tarifaIdTarifa" value="#{versionTarifaController.selected.tarifaIdTarifa}" required="true" requiredMessage="#{bundle.EditVersionTarifaRequiredMessage_tarifaIdTarifa}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{tarifaController.itemsAvailableSelectOne}"
-                                           var="idtarifaItem"
-                                           itemValue="#{idtarifaItem}"/>
+                                           var="tarifaIdTarifaItem"
+                                           itemValue="#{tarifaIdTarifaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{versionTarifaController.update}" value="#{bundle.Save}" update="display,:VersionTarifaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VersionTarifaEditDialog');"/>

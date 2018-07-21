@@ -12,8 +12,7 @@
             <h:form id="ProductoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{productoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewProductoLabel_idproducto}"/>
-                        <h:outputText value="#{productoController.selected.idproducto}" title="#{bundle.ViewProductoTitle_idproducto}"/>
+                        
                         <h:outputText value="#{bundle.ViewProductoLabel_nombre}"/>
                         <h:outputText value="#{productoController.selected.nombre}" title="#{bundle.ViewProductoTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewProductoLabel_descripcion}"/>
@@ -28,24 +27,16 @@
                         <p:selectBooleanCheckbox value="#{productoController.selected.venta}" disabled="true"/>
                         <h:outputText value="#{bundle.ViewProductoLabel_codbar}"/>
                         <h:outputText value="#{productoController.selected.codbar}" title="#{bundle.ViewProductoTitle_codbar}"/>
-                        <h:outputText value="#{bundle.ViewProductoLabel_usuarioins}"/>
-                        <h:outputText value="#{productoController.selected.usuarioins}" title="#{bundle.ViewProductoTitle_usuarioins}"/>
-                        <h:outputText value="#{bundle.ViewProductoLabel_fechains}"/>
-                        <h:outputText value="#{productoController.selected.fechains}" title="#{bundle.ViewProductoTitle_fechains}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewProductoLabel_usuarioupd}"/>
-                        <h:outputText value="#{productoController.selected.usuarioupd}" title="#{bundle.ViewProductoTitle_usuarioupd}"/>
-                        <h:outputText value="#{bundle.ViewProductoLabel_fechaupd}"/>
-                        <h:outputText value="#{productoController.selected.fechaupd}" title="#{bundle.ViewProductoTitle_fechaupd}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewProductoLabel_idcategoria}"/>
-                        <h:outputText value="#{productoController.selected.idcategoria}" title="#{bundle.ViewProductoTitle_idcategoria}"/>
-                        <h:outputText value="#{bundle.ViewProductoLabel_idmarca}"/>
-                        <h:outputText value="#{productoController.selected.idmarca}" title="#{bundle.ViewProductoTitle_idmarca}"/>
-                        <h:outputText value="#{bundle.ViewProductoLabel_idunidadMedida}"/>
-                        <h:outputText value="#{productoController.selected.idunidadMedida}" title="#{bundle.ViewProductoTitle_idunidadMedida}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idCategoriaProducto}"/>
+                        <h:outputText value="#{productoController.selected.idCategoriaProducto}" title="#{bundle.ViewProductoTitle_idCategoriaProducto}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idClasificacion}"/>
+                        <h:outputText value="#{productoController.selected.idClasificacion}" title="#{bundle.ViewProductoTitle_idClasificacion}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idMarca}"/>
+                        <h:outputText value="#{productoController.selected.idMarca}" title="#{bundle.ViewProductoTitle_idMarca}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_idUnidadMedida}"/>
+                        <h:outputText value="#{productoController.selected.idUnidadMedida}" title="#{bundle.ViewProductoTitle_idUnidadMedida}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ProductoViewDialog.hide()"/>
                 </h:panelGroup>

@@ -153,7 +153,7 @@ public class ClasificacionController implements Serializable {
             }
             if (object instanceof Clasificacion) {
                 Clasificacion o = (Clasificacion) object;
-                return getStringKey(o.getIdclasificacion());
+                return getStringKey(o.getIdClasificacion());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Clasificacion.class.getName()});
                 return null;

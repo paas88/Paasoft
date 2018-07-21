@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TerceroViewDlg" widgetVar="TerceroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTerceroTitle}">
+            <h:form id="TerceroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{terceroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTerceroLabel_idTercero}"/>
+                        <h:outputText value="#{terceroController.selected.idTercero}" title="#{bundle.ViewTerceroTitle_idTercero}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_nombre}"/>
+                        <h:outputText value="#{terceroController.selected.nombre}" title="#{bundle.ViewTerceroTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_numeroDocumento}"/>
+                        <h:outputText value="#{terceroController.selected.numeroDocumento}" title="#{bundle.ViewTerceroTitle_numeroDocumento}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_url}"/>
+                        <h:outputText value="#{terceroController.selected.url}" title="#{bundle.ViewTerceroTitle_url}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_email}"/>
+                        <h:outputText value="#{terceroController.selected.email}" title="#{bundle.ViewTerceroTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{terceroController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_usuarioins}"/>
+                        <h:outputText value="#{terceroController.selected.usuarioins}" title="#{bundle.ViewTerceroTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_fechains}"/>
+                        <h:outputText value="#{terceroController.selected.fechains}" title="#{bundle.ViewTerceroTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_usuarioupd}"/>
+                        <h:outputText value="#{terceroController.selected.usuarioupd}" title="#{bundle.ViewTerceroTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_fechaupd}"/>
+                        <h:outputText value="#{terceroController.selected.fechaupd}" title="#{bundle.ViewTerceroTitle_fechaupd}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_cliente}"/>
+                        <p:selectBooleanCheckbox value="#{terceroController.selected.cliente}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_proveedor}"/>
+                        <p:selectBooleanCheckbox value="#{terceroController.selected.proveedor}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_funcionario}"/>
+                        <p:selectBooleanCheckbox value="#{terceroController.selected.funcionario}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_idCategoriaTercero}"/>
+                        <h:outputText value="#{terceroController.selected.idCategoriaTercero}" title="#{bundle.ViewTerceroTitle_idCategoriaTercero}"/>
+                        <h:outputText value="#{bundle.ViewTerceroLabel_idTipoDocumento}"/>
+                        <h:outputText value="#{terceroController.selected.idTipoDocumento}" title="#{bundle.ViewTerceroTitle_idTipoDocumento}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TerceroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

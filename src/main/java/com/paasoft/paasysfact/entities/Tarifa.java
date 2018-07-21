@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Tarifa.findAll", query = "SELECT t FROM Tarifa t")
-    , @NamedQuery(name = "Tarifa.findByIdtarifa", query = "SELECT t FROM Tarifa t WHERE t.idtarifa = :idtarifa")
+    , @NamedQuery(name = "Tarifa.findByIdTarifa", query = "SELECT t FROM Tarifa t WHERE t.idTarifa = :idTarifa")
     , @NamedQuery(name = "Tarifa.findByNombre", query = "SELECT t FROM Tarifa t WHERE t.nombre = :nombre")
     , @NamedQuery(name = "Tarifa.findByEstado", query = "SELECT t FROM Tarifa t WHERE t.estado = :estado")
     , @NamedQuery(name = "Tarifa.findByUsuarioins", query = "SELECT t FROM Tarifa t WHERE t.usuarioins = :usuarioins")
@@ -49,8 +49,8 @@ public class Tarifa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idtarifa")
-    private Integer idtarifa;
+    @Column(name = "id_tarifa")
+    private Integer idTarifa;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -78,29 +78,29 @@ public class Tarifa implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idtarifa")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tarifaIdTarifa")
     private List<VersionTarifa> versionTarifaList;
 
     public Tarifa() {
     }
 
-    public Tarifa(Integer idtarifa) {
-        this.idtarifa = idtarifa;
+    public Tarifa(Integer idTarifa) {
+        this.idTarifa = idTarifa;
     }
 
-    public Tarifa(Integer idtarifa, String nombre, String usuarioins, Date fechains) {
-        this.idtarifa = idtarifa;
+    public Tarifa(Integer idTarifa, String nombre, String usuarioins, Date fechains) {
+        this.idTarifa = idTarifa;
         this.nombre = nombre;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdtarifa() {
-        return idtarifa;
+    public Integer getIdTarifa() {
+        return idTarifa;
     }
 
-    public void setIdtarifa(Integer idtarifa) {
-        this.idtarifa = idtarifa;
+    public void setIdTarifa(Integer idTarifa) {
+        this.idTarifa = idTarifa;
     }
 
     public String getNombre() {
@@ -171,7 +171,7 @@ public class Tarifa implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idtarifa != null ? idtarifa.hashCode() : 0);
+        hash += (idTarifa != null ? idTarifa.hashCode() : 0);
         return hash;
     }
 
@@ -182,7 +182,7 @@ public class Tarifa implements Serializable {
             return false;
         }
         Tarifa other = (Tarifa) object;
-        if ((this.idtarifa == null && other.idtarifa != null) || (this.idtarifa != null && !this.idtarifa.equals(other.idtarifa))) {
+        if ((this.idTarifa == null && other.idTarifa != null) || (this.idTarifa != null && !this.idTarifa.equals(other.idTarifa))) {
             return false;
         }
         return true;
@@ -190,7 +190,7 @@ public class Tarifa implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.Tarifa[ idtarifa=" + idtarifa + " ]";
+        return "com.paasoft.paasysfact.entities.Tarifa[ idTarifa=" + idTarifa + " ]";
     }
     
 }

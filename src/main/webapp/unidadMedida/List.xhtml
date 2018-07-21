@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{unidadMedidaController.items}" var="item"
                                  selectionMode="single" selection="#{unidadMedidaController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idunidadMedida}"
+                                 rowKey="#{item.idUnidadMedida}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadMedidaTitle_idunidadMedida}"/>
+                                <h:outputText value="#{bundle.ListUnidadMedidaTitle_idUnidadMedida}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idunidadMedida}"/>
+                            <h:outputText value="#{item.idUnidadMedida}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

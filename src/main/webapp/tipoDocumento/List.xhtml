@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{tipoDocumentoController.items}" var="item"
                                  selectionMode="single" selection="#{tipoDocumentoController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.idtipoDocumento}"
+                                 rowKey="#{item.idTipoDocumento}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoDocumentoTitle_idtipoDocumento}"/>
+                                <h:outputText value="#{bundle.ListTipoDocumentoTitle_idTipoDocumento}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtipoDocumento}"/>
+                            <h:outputText value="#{item.idTipoDocumento}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

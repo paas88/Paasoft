@@ -27,12 +27,7 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_productoPrecioId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.productoPrecioId}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoPrecioTitle_precioLista}"/>
@@ -45,45 +40,18 @@
                             </f:facet>
                             <h:outputText value="#{item.precioGeneral}"/>
                         </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_usuarioins}"/>
+                                <h:outputText value="#{bundle.ListProductoPrecioTitle_idProducto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.usuarioins}"/>
+                            <h:outputText value="#{item.idProducto}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_fechains}"/>
+                                <h:outputText value="#{bundle.ListProductoPrecioTitle_idVersionTarifa}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fechains}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_usuarioupd}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usuarioupd}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_fechaupd}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaupd}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_idproducto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idproducto}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoPrecioTitle_idversionTarifa}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idversionTarifa}"/>
+                            <h:outputText value="#{item.idVersionTarifa}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{productoPrecioController.prepareCreate}" update=":ProductoPrecioCreateForm" oncomplete="PF('ProductoPrecioCreateDialog').show()"/>

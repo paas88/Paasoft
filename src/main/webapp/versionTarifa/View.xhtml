@@ -12,8 +12,8 @@
             <h:form id="VersionTarifaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{versionTarifaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewVersionTarifaLabel_idversionTarifa}"/>
-                        <h:outputText value="#{versionTarifaController.selected.idversionTarifa}" title="#{bundle.ViewVersionTarifaTitle_idversionTarifa}"/>
+                        <h:outputText value="#{bundle.ViewVersionTarifaLabel_idVersionTarifa}"/>
+                        <h:outputText value="#{versionTarifaController.selected.idVersionTarifa}" title="#{bundle.ViewVersionTarifaTitle_idVersionTarifa}"/>
                         <h:outputText value="#{bundle.ViewVersionTarifaLabel_nombre}"/>
                         <h:outputText value="#{versionTarifaController.selected.nombre}" title="#{bundle.ViewVersionTarifaTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewVersionTarifaLabel_descripcion}"/>
@@ -40,8 +40,8 @@
                         <h:outputText value="#{versionTarifaController.selected.fechaupd}" title="#{bundle.ViewVersionTarifaTitle_fechaupd}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewVersionTarifaLabel_idtarifa}"/>
-                        <h:outputText value="#{versionTarifaController.selected.idtarifa}" title="#{bundle.ViewVersionTarifaTitle_idtarifa}"/>
+                        <h:outputText value="#{bundle.ViewVersionTarifaLabel_tarifaIdTarifa}"/>
+                        <h:outputText value="#{versionTarifaController.selected.tarifaIdTarifa}" title="#{bundle.ViewVersionTarifaTitle_tarifaIdTarifa}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="VersionTarifaViewDialog.hide()"/>
                 </h:panelGroup>

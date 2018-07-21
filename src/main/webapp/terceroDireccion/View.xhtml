@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TerceroDireccionViewDlg" widgetVar="TerceroDireccionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTerceroDireccionTitle}">
+            <h:form id="TerceroDireccionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{terceroDireccionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_idTerceroDireccion}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.idTerceroDireccion}" title="#{bundle.ViewTerceroDireccionTitle_idTerceroDireccion}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_nombre}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.nombre}" title="#{bundle.ViewTerceroDireccionTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_telefono}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.telefono}" title="#{bundle.ViewTerceroDireccionTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_celular}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.celular}" title="#{bundle.ViewTerceroDireccionTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{terceroDireccionController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_usuarioins}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.usuarioins}" title="#{bundle.ViewTerceroDireccionTitle_usuarioins}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_fechains}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.fechains}" title="#{bundle.ViewTerceroDireccionTitle_fechains}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_usuarioupd}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.usuarioupd}" title="#{bundle.ViewTerceroDireccionTitle_usuarioupd}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_fechaupd}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.fechaupd}" title="#{bundle.ViewTerceroDireccionTitle_fechaupd}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_idciudad}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.idciudad}" title="#{bundle.ViewTerceroDireccionTitle_idciudad}"/>
+                        <h:outputText value="#{bundle.ViewTerceroDireccionLabel_idTercero}"/>
+                        <h:outputText value="#{terceroDireccionController.selected.idTercero}" title="#{bundle.ViewTerceroDireccionTitle_idTercero}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TerceroDireccionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -12,14 +12,16 @@
             <h:form id="UsuarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_idusuario}" for="idusuario" />
-                        <p:inputText id="idusuario" value="#{usuarioController.selected.idusuario}" title="#{bundle.CreateUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_idusuario}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{usuarioController.selected.idUsuario}" title="#{bundle.CreateUsuarioTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_idUsuario}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuario}" for="usuario" />
                         <p:inputText id="usuario" value="#{usuarioController.selected.usuario}" title="#{bundle.CreateUsuarioTitle_usuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuario}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_contraseña}" for="contraseña" />
                         <p:inputText id="contraseña" value="#{usuarioController.selected.contraseña}" title="#{bundle.CreateUsuarioTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contraseña}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_estado}" for="estado" />
                         <p:selectBooleanCheckbox id="estado" value="#{usuarioController.selected.estado}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{usuarioController.selected.email}" title="#{bundle.CreateUsuarioTitle_email}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_email}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuarioins}" for="usuarioins" />
                         <p:inputText id="usuarioins" value="#{usuarioController.selected.usuarioins}" title="#{bundle.CreateUsuarioTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuarioins}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_fechains}" for="fechains" />
@@ -28,6 +30,12 @@
                         <p:inputText id="usuarioupd" value="#{usuarioController.selected.usuarioupd}" title="#{bundle.CreateUsuarioTitle_usuarioupd}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_fechaupd}" for="fechaupd" />
                         <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{usuarioController.selected.fechaupd}" title="#{bundle.EditUsuarioTitle_fechaupd}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_idRol}" for="idRol" />
+                        <p:selectOneMenu id="idRol" value="#{usuarioController.selected.idRol}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idRol}">
+                            <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
+                                           var="idRolItem"
+                                           itemValue="#{idRolItem}"/>
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>

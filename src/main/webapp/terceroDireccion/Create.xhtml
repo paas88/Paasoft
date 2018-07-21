@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TerceroDireccionCreateDlg" widgetVar="TerceroDireccionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTerceroDireccionTitle}">
+            <h:form id="TerceroDireccionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{terceroDireccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_idTerceroDireccion}" for="idTerceroDireccion" />
+                        <p:inputText id="idTerceroDireccion" value="#{terceroDireccionController.selected.idTerceroDireccion}" title="#{bundle.CreateTerceroDireccionTitle_idTerceroDireccion}" required="true" requiredMessage="#{bundle.CreateTerceroDireccionRequiredMessage_idTerceroDireccion}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{terceroDireccionController.selected.nombre}" title="#{bundle.CreateTerceroDireccionTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{terceroDireccionController.selected.telefono}" title="#{bundle.CreateTerceroDireccionTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{terceroDireccionController.selected.celular}" title="#{bundle.CreateTerceroDireccionTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{terceroDireccionController.selected.estado}" required="true" requiredMessage="#{bundle.EditTerceroDireccionRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{terceroDireccionController.selected.usuarioins}" title="#{bundle.CreateTerceroDireccionTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateTerceroDireccionRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{terceroDireccionController.selected.fechains}" title="#{bundle.EditTerceroDireccionTitle_fechains}" required="true" requiredMessage="#{bundle.EditTerceroDireccionRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{terceroDireccionController.selected.usuarioupd}" title="#{bundle.CreateTerceroDireccionTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_fechaupd}" for="fechaupd" />
+                        <p:inputText id="fechaupd" value="#{terceroDireccionController.selected.fechaupd}" title="#{bundle.CreateTerceroDireccionTitle_fechaupd}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_idciudad}" for="idciudad" />
+                        <p:selectOneMenu id="idciudad" value="#{terceroDireccionController.selected.idciudad}" required="true" requiredMessage="#{bundle.EditTerceroDireccionRequiredMessage_idciudad}">
+                            <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"
+                                           var="idciudadItem"
+                                           itemValue="#{idciudadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTerceroDireccionLabel_idTercero}" for="idTercero" />
+                        <p:selectOneMenu id="idTercero" value="#{terceroDireccionController.selected.idTercero}" required="true" requiredMessage="#{bundle.EditTerceroDireccionRequiredMessage_idTercero}">
+                            <f:selectItems value="#{terceroController.itemsAvailableSelectOne}"
+                                           var="idTerceroItem"
+                                           itemValue="#{idTerceroItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{terceroDireccionController.create}" value="#{bundle.Save}" update="display,:TerceroDireccionListForm:datalist,:growl" oncomplete="handleSubmit(args,'TerceroDireccionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TerceroDireccionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

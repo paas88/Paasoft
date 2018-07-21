@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TerceroCreateDlg" widgetVar="TerceroCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTerceroTitle}">
+            <h:form id="TerceroCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{terceroController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_idTercero}" for="idTercero" />
+                        <p:inputText id="idTercero" value="#{terceroController.selected.idTercero}" title="#{bundle.CreateTerceroTitle_idTercero}" required="true" requiredMessage="#{bundle.CreateTerceroRequiredMessage_idTercero}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{terceroController.selected.nombre}" title="#{bundle.CreateTerceroTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTerceroRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_numeroDocumento}" for="numeroDocumento" />
+                        <p:inputText id="numeroDocumento" value="#{terceroController.selected.numeroDocumento}" title="#{bundle.CreateTerceroTitle_numeroDocumento}" required="true" requiredMessage="#{bundle.CreateTerceroRequiredMessage_numeroDocumento}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_url}" for="url" />
+                        <p:inputText id="url" value="#{terceroController.selected.url}" title="#{bundle.CreateTerceroTitle_url}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{terceroController.selected.email}" title="#{bundle.CreateTerceroTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{terceroController.selected.estado}" required="true" requiredMessage="#{bundle.EditTerceroRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_usuarioins}" for="usuarioins" />
+                        <p:inputText id="usuarioins" value="#{terceroController.selected.usuarioins}" title="#{bundle.CreateTerceroTitle_usuarioins}" required="true" requiredMessage="#{bundle.CreateTerceroRequiredMessage_usuarioins}"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_fechains}" for="fechains" />
+                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{terceroController.selected.fechains}" title="#{bundle.EditTerceroTitle_fechains}" required="true" requiredMessage="#{bundle.EditTerceroRequiredMessage_fechains}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_usuarioupd}" for="usuarioupd" />
+                        <p:inputText id="usuarioupd" value="#{terceroController.selected.usuarioupd}" title="#{bundle.CreateTerceroTitle_usuarioupd}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_fechaupd}" for="fechaupd" />
+                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{terceroController.selected.fechaupd}" title="#{bundle.EditTerceroTitle_fechaupd}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_cliente}" for="cliente" />
+                        <p:selectBooleanCheckbox id="cliente" value="#{terceroController.selected.cliente}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_proveedor}" for="proveedor" />
+                        <p:selectBooleanCheckbox id="proveedor" value="#{terceroController.selected.proveedor}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_funcionario}" for="funcionario" />
+                        <p:selectBooleanCheckbox id="funcionario" value="#{terceroController.selected.funcionario}" />
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_idCategoriaTercero}" for="idCategoriaTercero" />
+                        <p:selectOneMenu id="idCategoriaTercero" value="#{terceroController.selected.idCategoriaTercero}" required="true" requiredMessage="#{bundle.EditTerceroRequiredMessage_idCategoriaTercero}">
+                            <f:selectItems value="#{categoriaTerceroController.itemsAvailableSelectOne}"
+                                           var="idCategoriaTerceroItem"
+                                           itemValue="#{idCategoriaTerceroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTerceroLabel_idTipoDocumento}" for="idTipoDocumento" />
+                        <p:selectOneMenu id="idTipoDocumento" value="#{terceroController.selected.idTipoDocumento}" required="true" requiredMessage="#{bundle.EditTerceroRequiredMessage_idTipoDocumento}">
+                            <f:selectItems value="#{tipoDocumentoController.itemsAvailableSelectOne}"
+                                           var="idTipoDocumentoItem"
+                                           itemValue="#{idTipoDocumentoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{terceroController.create}" value="#{bundle.Save}" update="display,:TerceroListForm:datalist,:growl" oncomplete="handleSubmit(args,'TerceroCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TerceroCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -12,8 +12,7 @@
             <h:form id="ProductoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{productoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditProductoLabel_idproducto}" for="idproducto" />
-                        <p:inputText id="idproducto" value="#{productoController.selected.idproducto}" title="#{bundle.EditProductoTitle_idproducto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idproducto}"/>
+                        
                         <p:outputLabel value="#{bundle.EditProductoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{productoController.selected.nombre}" title="#{bundle.EditProductoTitle_nombre}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditProductoLabel_descripcion}" for="descripcion" />
@@ -28,34 +27,34 @@
                         <p:selectBooleanCheckbox id="venta" value="#{productoController.selected.venta}" />
                         <p:outputLabel value="#{bundle.EditProductoLabel_codbar}" for="codbar" />
                         <p:inputText id="codbar" value="#{productoController.selected.codbar}" title="#{bundle.EditProductoTitle_codbar}" />
-                        <p:outputLabel value="#{bundle.EditProductoLabel_usuarioins}" for="usuarioins" />
-                        <p:inputText id="usuarioins" value="#{productoController.selected.usuarioins}" title="#{bundle.EditProductoTitle_usuarioins}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_usuarioins}"/>
-                        <p:outputLabel value="#{bundle.EditProductoLabel_fechains}" for="fechains" />
-                        <p:calendar id="fechains" pattern="MM/dd/yyyy HH:mm:ss" value="#{productoController.selected.fechains}" title="#{bundle.EditProductoTitle_fechains}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_fechains}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditProductoLabel_usuarioupd}" for="usuarioupd" />
-                        <p:inputText id="usuarioupd" value="#{productoController.selected.usuarioupd}" title="#{bundle.EditProductoTitle_usuarioupd}" />
-                        <p:outputLabel value="#{bundle.EditProductoLabel_fechaupd}" for="fechaupd" />
-                        <p:calendar id="fechaupd" pattern="MM/dd/yyyy HH:mm:ss" value="#{productoController.selected.fechaupd}" title="#{bundle.EditProductoTitle_fechaupd}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditProductoLabel_idcategoria}" for="idcategoria" />
-                        <p:selectOneMenu id="idcategoria" value="#{productoController.selected.idcategoria}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idcategoria}">
+                        
+                        <p:outputLabel value="#{bundle.EditProductoLabel_idCategoriaProducto}" for="idCategoriaProducto" />
+                        <p:selectOneMenu id="idCategoriaProducto" value="#{productoController.selected.idCategoriaProducto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idCategoriaProducto}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"
-                                           var="idcategoriaItem"
-                                           itemValue="#{idcategoriaItem}"/>
+                            <f:selectItems value="#{categoriaProductoController.itemsAvailableSelectOne}"
+                                           var="idCategoriaProductoItem"
+                                           itemValue="#{idCategoriaProductoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditProductoLabel_idmarca}" for="idmarca" />
-                        <p:selectOneMenu id="idmarca" value="#{productoController.selected.idmarca}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idmarca}">
+                        <p:outputLabel value="#{bundle.EditProductoLabel_idClasificacion}" for="idClasificacion" />
+                        <p:selectOneMenu id="idClasificacion" value="#{productoController.selected.idClasificacion}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idClasificacion}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clasificacionController.itemsAvailableSelectOne}"
+                                           var="idClasificacionItem"
+                                           itemValue="#{idClasificacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditProductoLabel_idMarca}" for="idMarca" />
+                        <p:selectOneMenu id="idMarca" value="#{productoController.selected.idMarca}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idMarca}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{marcaController.itemsAvailableSelectOne}"
-                                           var="idmarcaItem"
-                                           itemValue="#{idmarcaItem}"/>
+                                           var="idMarcaItem"
+                                           itemValue="#{idMarcaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditProductoLabel_idunidadMedida}" for="idunidadMedida" />
-                        <p:selectOneMenu id="idunidadMedida" value="#{productoController.selected.idunidadMedida}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idunidadMedida}">
+                        <p:outputLabel value="#{bundle.EditProductoLabel_idUnidadMedida}" for="idUnidadMedida" />
+                        <p:selectOneMenu id="idUnidadMedida" value="#{productoController.selected.idUnidadMedida}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idUnidadMedida}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{unidadMedidaController.itemsAvailableSelectOne}"
-                                           var="idunidadMedidaItem"
-                                           itemValue="#{idunidadMedidaItem}"/>
+                                           var="idUnidadMedidaItem"
+                                           itemValue="#{idUnidadMedidaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{productoController.update}" value="#{bundle.Save}" update="display,:ProductoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProductoEditDialog');"/>

@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "VersionTarifa.findAll", query = "SELECT v FROM VersionTarifa v")
-    , @NamedQuery(name = "VersionTarifa.findByIdversionTarifa", query = "SELECT v FROM VersionTarifa v WHERE v.idversionTarifa = :idversionTarifa")
+    , @NamedQuery(name = "VersionTarifa.findByIdVersionTarifa", query = "SELECT v FROM VersionTarifa v WHERE v.idVersionTarifa = :idVersionTarifa")
     , @NamedQuery(name = "VersionTarifa.findByNombre", query = "SELECT v FROM VersionTarifa v WHERE v.nombre = :nombre")
     , @NamedQuery(name = "VersionTarifa.findByEstado", query = "SELECT v FROM VersionTarifa v WHERE v.estado = :estado")
     , @NamedQuery(name = "VersionTarifa.findByValidodesde", query = "SELECT v FROM VersionTarifa v WHERE v.validodesde = :validodesde")
@@ -53,8 +53,8 @@ public class VersionTarifa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idversion_tarifa")
-    private Integer idversionTarifa;
+    @Column(name = "id_version_tarifa")
+    private Integer idVersionTarifa;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -90,33 +90,33 @@ public class VersionTarifa implements Serializable {
     @Column(name = "fechaupd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupd;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idversionTarifa")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idVersionTarifa")
     private List<ProductoPrecio> productoPrecioList;
-    @JoinColumn(name = "idtarifa", referencedColumnName = "idtarifa")
+    @JoinColumn(name = "tarifa_id_tarifa", referencedColumnName = "id_tarifa")
     @ManyToOne(optional = false)
-    private Tarifa idtarifa;
+    private Tarifa tarifaIdTarifa;
 
     public VersionTarifa() {
     }
 
-    public VersionTarifa(Integer idversionTarifa) {
-        this.idversionTarifa = idversionTarifa;
+    public VersionTarifa(Integer idVersionTarifa) {
+        this.idVersionTarifa = idVersionTarifa;
     }
 
-    public VersionTarifa(Integer idversionTarifa, String nombre, boolean estado, String usuarioins, Date fechains) {
-        this.idversionTarifa = idversionTarifa;
+    public VersionTarifa(Integer idVersionTarifa, String nombre, boolean estado, String usuarioins, Date fechains) {
+        this.idVersionTarifa = idVersionTarifa;
         this.nombre = nombre;
         this.estado = estado;
         this.usuarioins = usuarioins;
         this.fechains = fechains;
     }
 
-    public Integer getIdversionTarifa() {
-        return idversionTarifa;
+    public Integer getIdVersionTarifa() {
+        return idVersionTarifa;
     }
 
-    public void setIdversionTarifa(Integer idversionTarifa) {
-        this.idversionTarifa = idversionTarifa;
+    public void setIdVersionTarifa(Integer idVersionTarifa) {
+        this.idVersionTarifa = idVersionTarifa;
     }
 
     public String getNombre() {
@@ -200,18 +200,18 @@ public class VersionTarifa implements Serializable {
         this.productoPrecioList = productoPrecioList;
     }
 
-    public Tarifa getIdtarifa() {
-        return idtarifa;
+    public Tarifa getTarifaIdTarifa() {
+        return tarifaIdTarifa;
     }
 
-    public void setIdtarifa(Tarifa idtarifa) {
-        this.idtarifa = idtarifa;
+    public void setTarifaIdTarifa(Tarifa tarifaIdTarifa) {
+        this.tarifaIdTarifa = tarifaIdTarifa;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idversionTarifa != null ? idversionTarifa.hashCode() : 0);
+        hash += (idVersionTarifa != null ? idVersionTarifa.hashCode() : 0);
         return hash;
     }
 
@@ -222,7 +222,7 @@ public class VersionTarifa implements Serializable {
             return false;
         }
         VersionTarifa other = (VersionTarifa) object;
-        if ((this.idversionTarifa == null && other.idversionTarifa != null) || (this.idversionTarifa != null && !this.idversionTarifa.equals(other.idversionTarifa))) {
+        if ((this.idVersionTarifa == null && other.idVersionTarifa != null) || (this.idVersionTarifa != null && !this.idVersionTarifa.equals(other.idVersionTarifa))) {
             return false;
         }
         return true;
@@ -230,7 +230,7 @@ public class VersionTarifa implements Serializable {
 
     @Override
     public String toString() {
-        return "com.paasoft.paasysfact.entities.VersionTarifa[ idversionTarifa=" + idversionTarifa + " ]";
+        return "com.paasoft.paasysfact.entities.VersionTarifa[ idVersionTarifa=" + idVersionTarifa + " ]";
     }
     
 }

@@ -12,8 +12,8 @@
             <h:form id="UnidadMedidaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{unidadMedidaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUnidadMedidaLabel_idunidadMedida}" for="idunidadMedida" />
-                        <p:inputText id="idunidadMedida" value="#{unidadMedidaController.selected.idunidadMedida}" title="#{bundle.CreateUnidadMedidaTitle_idunidadMedida}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_idunidadMedida}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadMedidaLabel_idUnidadMedida}" for="idUnidadMedida" />
+                        <p:inputText id="idUnidadMedida" value="#{unidadMedidaController.selected.idUnidadMedida}" title="#{bundle.CreateUnidadMedidaTitle_idUnidadMedida}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_idUnidadMedida}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadMedidaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{unidadMedidaController.selected.nombre}" title="#{bundle.CreateUnidadMedidaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadMedidaLabel_descripcion}" for="descripcion" />
